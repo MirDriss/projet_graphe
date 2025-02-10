@@ -15,4 +15,14 @@ ordo = afficher_matrice(matrice)
 
 matrice_valeur(matrice)
 
+dico_transitif = dico_fermeture_transitive(matrice)
 
+print("c moi")
+
+print(dico_transitif)
+
+MT = matrice_transitive(matrice)
+
+afficher_matrice(MT)
+
+print(circuit(MT))

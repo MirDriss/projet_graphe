@@ -81,7 +81,37 @@ def dico_successeur(matrice):
     return successeur
 
 
+def dico_fermeture_transitive(matrice):
+    dico_succ = dico_successeur(matrice)
 
+    n = len(matrice)
+
+    for i in range(n):   # parcourt tout les sommes
+        for sommet in dico_succ :   # parcourt chaque sommets
+
+            nouveaux_succ = set(dico_succ[sommet]) # utilisation du set pour eviter les doublons d'avance
+
+            for sucesseur in dico_succ[sommet]: # je regarde les successeurs du sommet en question
+
+                nouveaux_succ.update(dico_succ[sucesseur]) # j'ajoute les successeurs du successeur
+
+            dico_succ[sommet] = list(nouveaux_succ)
+
+    return dico_succ
+
+
+def matrice_transitive(matrice):
+
+    dico_matrice = dico_fermeture_transitive(matrice)
+
+    n = len(matrice)
+    matrice_trans = [[0] * n for _ in range(n)]
+
+    for sommets,succ in dico_matrice.items():
+        for tache in succ:
+            matrice_trans[sommets][tache] = 1
+
+    return matrice_trans
 
 
 
@@ -109,4 +139,19 @@ def matrice_valeur(matrice):
                 print(f"{'*':^5}", end=" ")  # Marque un lien avec une étoile
         print()  # Nouvelle ligne
 
+
+
+
+
+
+def circuit(matrice):
+
+    MT = matrice_transitive(matrice)
+
+    for i in range(len(MT)):
+        for j in range(len(MT)):
+            if i == j and MT[i][j] == 1:
+                return True
+
+    return False
 
