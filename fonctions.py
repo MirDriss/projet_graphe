@@ -109,4 +109,44 @@ def matrice_valeur(matrice):
                 print(f"{'*':^5}", end=" ")  # Marque un lien avec une étoile
         print()  # Nouvelle ligne
 
+def recup_sommets(dico_succ):
+    sommets = []
+    for i in dico_succ.keys():
+        sommets.append(i);
+    return sommets
+def matrice_adjacence(dico_succ):
+    sommets = recup_sommets(dico_succ)
+    MA = [[0]*len(sommets) for i in range(len(sommets))]
+
+    for tache, succs in dico_succ.items():
+        index_tache = sommets.index(tache)
+        for succ in succs:
+            index_succ = sommets.index(succ)
+            MA[index_tache][index_succ] = 1
+    for ligne in MA:
+        print(ligne)
+    return MA
+
+
+def detecter_circuit(MA):
+    for i in range(len(MA)):
+        if MA[i][i] == 1:
+            print(i)
+            return True
+    return False
+
+
+def fermeture_transitive(MA):
+    n = len(MA)
+    print(n)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                MA[i][j] = MA[i][j] or (MA[i][k] and MA[k][j])
+
+    for ligne in MA:
+        print(ligne)
+    print(n)
+
 

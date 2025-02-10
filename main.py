@@ -13,6 +13,10 @@ ordo = afficher_matrice(matrice)
 
 
 
-matrice_valeur(matrice)
+
+
+
+
+fermeture_transitive(matrice_adjacence(dico_successeur(matrice)))
 
 
