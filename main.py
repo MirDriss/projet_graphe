@@ -23,6 +23,6 @@ print(dico_transitif)
 
 MT = matrice_transitive(matrice)
 
-afficher_matrice(MT)
+afficher_matrice_transitive(matrice)
 
 print(circuit(MT))

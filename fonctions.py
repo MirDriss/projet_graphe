@@ -105,7 +105,7 @@ def matrice_transitive(matrice):
     dico_matrice = dico_fermeture_transitive(matrice)
 
     n = len(matrice)
-    matrice_trans = [[0] * n for _ in range(n)]
+    matrice_trans = [[0] * n for _ in range(n)] # initialisation a 0
 
     for sommets,succ in dico_matrice.items():
         for tache in succ:
@@ -113,7 +113,31 @@ def matrice_transitive(matrice):
 
     return matrice_trans
 
+def afficher_matrice_transitive(matrice):
 
+    MT = matrice_transitive(matrice)
+
+    dico_succ = dico_fermeture_transitive(matrice)
+
+    n = len(MT)
+
+    print("      ", end="")  # Espace pour l'alignement des indices de colonnes
+
+    for i in range(n):
+        print(f"{i:^5}", end=" ")  # Largeur fixe pour chaque colonne
+    print()  # Nouvelle ligne
+
+
+
+    for i in range(n):
+        print(f"{i:^5}", end=" ")  # Indice de ligne centré
+        for j in range(n):
+            if ( MT[i][j] == 0 ):
+                print(f"{"0":^5}", end=" ")
+            else:
+                print(f"{"1":^5}", end=" ")
+
+        print()
 
 
 #faire une fonction qui fait la matrice des valeurs
