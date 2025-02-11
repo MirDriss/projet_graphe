@@ -86,7 +86,7 @@ def dico_fermeture_transitive(matrice):
 
     n = len(matrice)
 
-    for i in range(n):   # parcourt tout les sommes
+    for i in range(n):   # parcourt tout les sommets
         for sommet in dico_succ :   # parcourt chaque sommets
 
             nouveaux_succ = set(dico_succ[sommet]) # utilisation du set pour eviter les doublons d'avance
@@ -133,9 +133,9 @@ def afficher_matrice_transitive(matrice):
         print(f"{i:^5}", end=" ")  # Indice de ligne centré
         for j in range(n):
             if ( MT[i][j] == 0 ):
-                print(f"{"0":^5}", end=" ")
+                print(f"{'0':^5}", end=" ")
             else:
-                print(f"{"1":^5}", end=" ")
+                print(f"{'1':^5}", end=" ")
 
         print()
 
@@ -173,9 +173,8 @@ def circuit(matrice):
     MT = matrice_transitive(matrice)
 
     for i in range(len(MT)):
-        for j in range(len(MT)):
-            if i == j and MT[i][j] == 1:
-                return True
+        if  MT[i][i] == 1:
+            return True
 
     return False
 
