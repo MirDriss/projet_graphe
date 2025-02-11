@@ -168,7 +168,7 @@ def matrice_valeur(matrice):
 
 
 
-def circuit(matrice):
+def detecter_circuit_methode_1(matrice):
 
     MT = matrice_transitive(matrice)
 
@@ -177,4 +177,49 @@ def circuit(matrice):
             return True
 
     return False
+
+def detecter_circuit_methode_2(matrice):
+
+    changement = True
+    copy_matrice = sorted(matrice[1:-1], key=len)
+    print(copy_matrice)
+
+    while changement:
+
+
+        if(len(copy_matrice) !=0):
+            ligne = copy_matrice[0]
+            if ( len(ligne) < 3): # on vérifie si le sommet n'a pas de predecesseur
+                sommet = ligne[0] # on récupère le sommet qui est sans predecesseur
+                print("avant suppression de la ligne :",copy_matrice)
+                copy_matrice.pop(copy_matrice.index(ligne)) # on supprime la ligne ou y a le sommet en question
+                print("apres suppression de la ligne :",copy_matrice)
+                for i in range(len(copy_matrice)):  # on enlève là où le sommet apparait comme prédecesseur pour les autres sommets
+                    if sommet in copy_matrice[i][2:]:
+
+                        print("liste des predecesseur",copy_matrice[i][2:])
+                        print("sommet à supprimer",sommet)
+                        print()
+                        copy_matrice[i].remove(sommet)
+
+            else:
+                changement = False
+        else:
+
+            changement = False
+            print(copy_matrice)
+
+
+    if (len(copy_matrice) == 0):
+
+        print("Il n'y pas de circuit")
+        return False
+
+    print("Il y un circuit")
+    return True
+
+
+
+                
+                
 
