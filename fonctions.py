@@ -219,6 +219,49 @@ def detecter_circuit_methode_2(matrice):
     return True
 
 
+def rang_sommet_matrice(matrice):
+    dico_rang = {}
+    dico_succ = dico_successeur(matrice)
+    S_actuel = []
+    for i in range(len(matrice)): # détection des Sommets de rangs 0 (Ceux qui n'ont pas de prédécesseurs)
+        dico_rang[i] = -1
+        if(len(matrice[i]) == 2):
+            dico_rang[i] = 0
+            S_actuel.append(i)
+    S_suivant = []
+    k=1
+    while S_actuel != []:
+        for i in range(len(matrice)):
+            for j in range(2, len(matrice[i])):
+                if(matrice[i][j]) in S_actuel:
+                    S_suivant.append(i)
+        for i in S_suivant:
+            dico_rang[i] = k
+        k+=1
+        S_actuel = S_suivant
+        S_suivant = []
+    return dico_rang
+
+def afficher_rang_sommets(dico):
+    print(f"{'Code':<12}{'Rang':<8}")
+    print("-" * 16)  # Ligne de séparation
+    for i in range(len(dico)):
+        print(i, "\t" * 3, dico[i])
+    return
+
+               
+                
+
+def selection_fichier():
+    fichier = "Graphe/"
+    choix = input("Veuillez choisir la table que vous souhaitez (0-15) ?")
+    while (int(choix) < 0  or int(choix) > 15):
+        print("La valeur que vous avez choisis '" + choix + "' n'est pas acceptable.")
+        choix = input("Veuillez choisisr une nouvelle valeur ?")
+    fichier += "table " + choix + ".txt"
+    return fichier
+
+
 
                 
                 
