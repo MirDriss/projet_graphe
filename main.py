@@ -5,7 +5,8 @@ matrice = lire_fichier(fichier)
 ordo = afficher_matrice(matrice)
 
 
-
+print(calculer_dates_au_plus_tot(matrice))
+# ranger_ordre_graphe_sommet(matrice)
 #boolean = negative_duree(matrice)
 
 #print()
@@ -24,4 +25,4 @@ MT = matrice_transitive(matrice)
 
 afficher_matrice_transitive(matrice)
 """
-print(detecter_circuit_methode_2(matrice))
+# print(detecter_circuit_methode_2(matrice))

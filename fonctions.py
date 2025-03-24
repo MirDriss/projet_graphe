@@ -220,6 +220,11 @@ def detecter_circuit_methode_2(matrice):
 
 
 def rang_sommet_matrice(matrice):
+    """
+
+    matrice sous forme de tableau à double entrée :param matrice:
+    dictionnaire avec le rang de chaque sommet :return:
+    """
     dico_rang = {}
     dico_succ = dico_successeur(matrice)
     S_actuel = []
@@ -241,6 +246,56 @@ def rang_sommet_matrice(matrice):
         S_actuel = S_suivant
         S_suivant = []
     return dico_rang
+
+
+
+def ranger_ordre_graphe_sommet(graphe):
+    dico_sommet = rang_sommet_matrice(graphe)
+    graphe_ordonnee = {}
+
+
+    while dico_sommet:  # Faire temps que le dico n'est pas vide
+        sommet_min = min(dico_sommet, key=dico_sommet.get)  # trouver la plus petite valeur et clef
+        minimum = dico_sommet[sommet_min]
+
+        graphe_ordonnee[sommet_min] = minimum  # Ajouter le min dans le graphe ordonnée
+        del dico_sommet[sommet_min]  # enlever le min du dico
+
+    return graphe_ordonnee
+
+
+
+
+def predecesseur(matrice, indice):
+    pred = []
+    if len(matrice[indice]) > 2:
+        pred = matrice[indice][2:]
+    return pred
+
+def graphe_vers_dico(graphe):
+    task = {}
+    for i in range(len(graphe)):
+        task[i] = {'duree' : graphe[i][1], 'predecesseurs' : predecesseur(graphe, i)}
+    return task
+
+
+def calculer_dates_au_plus_tot(graphe):
+    tasks = graphe_vers_dico(graphe)
+    # Initialisation des dates au plus tôt
+    dates_au_plus_tot = {task: 0 for task in tasks}  # On commence toutes les dates à 0
+
+    # Parcours des tâches dans l'ordre topologique
+    for task in tasks:
+        # Pour chaque prédécesseur, on calcule la date de fin et on met à jour la date de début
+        for pred in tasks[task]['predecesseurs']:
+            # La tâche peut commencer une fois que toutes ses prédécesseurs sont terminées
+            dates_au_plus_tot[task] = max(dates_au_plus_tot[task], dates_au_plus_tot[pred] + tasks[pred]['duree'])
+
+    return dates_au_plus_tot
+
+
+
+
 
 def afficher_rang_sommets(dico):
     print(f"{'Code':<12}{'Rang':<8}")
