@@ -295,25 +295,23 @@ def calculer_dates_au_plus_tot(graphe):
     return dates_au_plus_tot
 
 
-def calculer_dates_au_plus_tard(graphe):
-    # Récupérer le graphe sous forme de dictionnaire
-    taches = graphe_vers_dico(graphe)
-    dates_au_plus_tot = {tache: 0 for tache in taches}  # On commence toutes les dates à 0
+def calculer_dates_au_plus_tard(matrice):
+    tasks = graphe_vers_dico(matrice)
+    dates_au_plus_tot = calculer_dates_au_plus_tot(matrice)
+    successeurs = dico_successeur(matrice)
 
-    # Calcul de la durée totale du projet (date de fin du projet)
-    duree_projet = max(dates_au_plus_tot[tache] + taches[tache]['duree'] for tache in taches)
+    duree_projet = max(dates_au_plus_tot.values())
 
-    # Initialisation des dates au plus tard avec la durée totale du projet
-    dates_au_plus_tard = {tache: duree_projet for tache in taches}
+    dates_au_plus_tard = {task: duree_projet for task in tasks}
 
-    # Parcours du graphe en sens inverse (en partant des tâches finales)
-    for tache in reversed(list(taches.keys())):
-        for succ in taches:
-            if tache in taches[succ]['predecesseurs']:  # Vérifier si la tâche est un prédécesseur d'une autre
-                dates_au_plus_tard[tache] = min(dates_au_plus_tard[tache],
-                                               dates_au_plus_tard[succ] - taches[tache]['duree'])
-
+    for task in reversed(tasks):
+        if not successeurs[task]:
+            dates_au_plus_tard[task] = duree_projet
+        else:
+            date_min = min(dates_au_plus_tard[succ] for succ in successeurs[task])
+            dates_au_plus_tard[task] = date_min - tasks[task]['duree']
     return dates_au_plus_tard
+
 
 
 def afficher_dates_au_plus_tot(dates_au_plus_tot):
