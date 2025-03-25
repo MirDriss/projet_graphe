@@ -13,8 +13,8 @@ In this project, we focused on the following key areas:
 
 
 ## Group Members
-- Abdellah H'lali
-- Alexandre Vazquez
-- Driss Mir
+- Abdellah H'LALI
+- Alexandre VAZQUEZ
+- Driss MIR
 - Théo BRACQUEMART
 - Thomas DOS SANTOS
