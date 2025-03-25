@@ -273,27 +273,58 @@ def predecesseur(matrice, indice):
     return pred
 
 def graphe_vers_dico(graphe):
-    task = {}
+    tache = {}
     for i in range(len(graphe)):
-        task[i] = {'duree' : graphe[i][1], 'predecesseurs' : predecesseur(graphe, i)}
-    return task
+        tache[i] = {'duree' : graphe[i][1], 'predecesseurs' : predecesseur(graphe, i)}
+    return tache
 
 
 def calculer_dates_au_plus_tot(graphe):
-    tasks = graphe_vers_dico(graphe)
+    # Récupérer le graphe sous forme de dictionnaire
+    taches = graphe_vers_dico(graphe)
     # Initialisation des dates au plus tôt
-    dates_au_plus_tot = {task: 0 for task in tasks}  # On commence toutes les dates à 0
+    dates_au_plus_tot = {tache: 0 for tache in taches}  # On commence toutes les dates à 0
 
     # Parcours des tâches dans l'ordre topologique
-    for task in tasks:
+    for tache in taches:
         # Pour chaque prédécesseur, on calcule la date de fin et on met à jour la date de début
-        for pred in tasks[task]['predecesseurs']:
+        for pred in taches[tache]['predecesseurs']:
             # La tâche peut commencer une fois que toutes ses prédécesseurs sont terminées
-            dates_au_plus_tot[task] = max(dates_au_plus_tot[task], dates_au_plus_tot[pred] + tasks[pred]['duree'])
+            dates_au_plus_tot[tache] = max(dates_au_plus_tot[tache], dates_au_plus_tot[pred] + taches[pred]['duree'])
 
     return dates_au_plus_tot
 
 
+def calculer_dates_au_plus_tard(graphe):
+    # Récupérer le graphe sous forme de dictionnaire
+    taches = graphe_vers_dico(graphe)
+    dates_au_plus_tot = {tache: 0 for tache in taches}  # On commence toutes les dates à 0
+
+    # Calcul de la durée totale du projet (date de fin du projet)
+    duree_projet = max(dates_au_plus_tot[tache] + taches[tache]['duree'] for tache in taches)
+
+    # Initialisation des dates au plus tard avec la durée totale du projet
+    dates_au_plus_tard = {tache: duree_projet for tache in taches}
+
+    # Parcours du graphe en sens inverse (en partant des tâches finales)
+    for tache in reversed(list(taches.keys())):
+        for succ in taches:
+            if tache in taches[succ]['predecesseurs']:  # Vérifier si la tâche est un prédécesseur d'une autre
+                dates_au_plus_tard[tache] = min(dates_au_plus_tard[tache],
+                                               dates_au_plus_tard[succ] - taches[tache]['duree'])
+
+    return dates_au_plus_tard
+
+
+def afficher_dates_au_plus_tot(dates_au_plus_tot):
+    for tache, date in dates_au_plus_tot.items():
+        print(f"Tâche {tache} peut commencer au plus tôt à la date {date}.")
+    return
+
+def afficher_dates_au_plus_tard(dates_au_plus_tot):
+    for tache, date in dates_au_plus_tot.items():
+        print(f"Tâche {tache} peut commencer au plus tard à la date {date}.")
+    return
 
 
 
