@@ -18,9 +18,16 @@ def lire_fichier(fichier): # fonction pour lire le fichier txt
 
 
 
-def afficher_matrice(matrice):
+def nbr_arc(graphe):
+    nbr = -1
+    for i in range(len(graphe)):
+        nbr += len(graphe[i]) - 2
+        if(len(graphe[i]) == 2):
+            nbr+=1
+    return nbr
 
-    print(len(matrice), "sommets")
+
+def afficher_matrice(matrice):
     print()
     # Affiche l'en-tête du tableau
     print(f"{'Code':<12}{'Durée':<8}{'Prédécesseurs'}")
@@ -38,13 +45,39 @@ def afficher_matrice(matrice):
 
         # Affiche les informations de la ligne formatées
         print(f"{num_tache:<12}{duree:<8}{predecesseurs}")
+    return
 
+
+# Affichage du graphe d'ordonnancement
+def affichage_graphe_ordonnancement(matrice):
+    """
+    :affichage:
+    nbr sommets
+    nbr arcs
+    S1 -> S2 = duree
+    S2 -> S4 = duree
+    S2 -> S6 = duree
+    :param matrice:
+    :return:
+    """
+    dico_succ = dico_successeur(matrice)
+    print(dico_succ)
+    print("\nCréation du graphe d'ordonnancement : ")
+    print(len(matrice), "sommets")
+    print(nbr_arc(matrice), "arcs")
+    for i in range(len(matrice)):
+        if dico_succ[i] != []:
+            for j in (dico_succ[i]):
+                print(i," -> ", j, " = ", matrice[i][1])
+    return
 
 def negative_duree(matrice): # verifie s'il ya des arcs négatifs
 
     for ligne in matrice:
         if ( ligne[1] < 0):
+            print("Le graphe contient au moins un arc à valeur négative.")
             return True
+        print("Le graphe ne contient aucun arc à valeur négative.")
     return False
 
 
@@ -143,10 +176,10 @@ def afficher_matrice_transitive(matrice):
 #faire une fonction qui fait la matrice des valeurs
 
 def matrice_valeur(matrice):
+    print("\nMatrice des valeurs")
     matrice_affichage = []
     n = len(matrice)
     dico_succ = dico_successeur(matrice)
-    print(dico_succ)
     # Affichage de l'en-tête avec un centrage
     print("    ", end="")  # Espace pour l'alignement des indices de colonnes
     for i in range(n):
@@ -174,8 +207,9 @@ def detecter_circuit_methode_1(matrice):
 
     for i in range(len(MT)):
         if  MT[i][i] == 1:
+            print("Le graphe contient un circuit.")
             return True
-
+    print("Le graphe ne contient aucun circuit.")
     return False
 
 def detecter_circuit_methode_2(matrice):
@@ -216,6 +250,18 @@ def detecter_circuit_methode_2(matrice):
         return False
 
     print("Il y un circuit")
+    return True
+
+
+def is_graphe_ordonnancement (matrice):
+    if negative_duree(matrice):
+        print("Le graphe n'est pas un graphe ordonné, on ne peut pas se servir de celui-ci comme graphe d’ordonnancement.")
+
+        return False
+    elif detecter_circuit_methode_2(matrice):
+        print("Le graphe n'est pas un graphe ordonné, on ne peut pas se servir de celui-ci comme graphe d’ordonnancement.")
+        return False
+    print("Le graphe est un graphe ordonné, il peut servir de graphe d’ordonnancement.")
     return True
 
 
@@ -262,7 +308,6 @@ def ranger_ordre_graphe_sommet(graphe):
         del dico_sommet[sommet_min]  # enlever le min du dico
 
     return graphe_ordonnee
-
 
 
 
@@ -327,6 +372,7 @@ def afficher_dates_au_plus_tard(dates_au_plus_tot):
 
 
 def afficher_rang_sommets(dico):
+    print("Les rangs de chaque sommets sont les suivants :")
     print(f"{'Code':<12}{'Rang':<8}")
     print("-" * 16)  # Ligne de séparation
     for i in range(len(dico)):
@@ -338,10 +384,11 @@ def afficher_rang_sommets(dico):
 
 def selection_fichier():
     fichier = "Graphe/"
-    choix = input("Veuillez choisir la table que vous souhaitez (0-15) ?")
+    print("Veuillez choisir la table que vous souhaitez (0-15) ?")
+    choix = input(">>> ")
     while (int(choix) < 0  or int(choix) > 15):
-        print("La valeur que vous avez choisis '" + choix + "' n'est pas acceptable.")
-        choix = input("Veuillez choisisr une nouvelle valeur ?")
+        print("La valeur que vous avez choisis '" + choix + "' n'est pas acceptable. \nVeuillez choisisr une nouvelle valeur ?")
+        choix = input(">>> ")
     fichier += "table " + choix + ".txt"
     return fichier
 
