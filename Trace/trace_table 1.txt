@@ -2,22 +2,26 @@
 
 --- Étape : Vérification du graphe ---
 Le graphe ne contient aucun arc à valeur négative.
+[[1, 2], [2, 5], [3, 4, 1], [5, 5, 4], [6, 5, 5], [7, 9, 6], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1, 4], [12, 1, 3], [13, 9, 6, 12], [4, 2, 2, 3, 13]]
 Étude du sommet 1
 	Sommet 1 sans prédécesseurs (ou seulement alpha)
 		Suppression de 1 comme prédécesseur du sommet 3
 	Sommet 1 supprimé de la matrice
 
+[[2, 5], [3, 4], [5, 5, 4], [6, 5, 5], [7, 9, 6], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1, 4], [12, 1, 3], [13, 9, 6, 12], [4, 2, 2, 3, 13]]
 Étude du sommet 2
 	Sommet 2 sans prédécesseurs (ou seulement alpha)
 		Suppression de 2 comme prédécesseur du sommet 4
 	Sommet 2 supprimé de la matrice
 
+[[3, 4], [5, 5, 4], [6, 5, 5], [7, 9, 6], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1, 4], [12, 1, 3], [13, 9, 6, 12], [4, 2, 3, 13]]
 Étude du sommet 3
 	Sommet 3 sans prédécesseurs (ou seulement alpha)
 		Suppression de 3 comme prédécesseur du sommet 12
 		Suppression de 3 comme prédécesseur du sommet 4
 	Sommet 3 supprimé de la matrice
 
+[[5, 5, 4], [6, 5, 5], [7, 9, 6], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1, 4], [12, 1], [13, 9, 6, 12], [4, 2, 13]]
 Étude du sommet 5
 	Sommet 5 possède toujours des prédécesseurs : [4], aucune action réalisée.
 
@@ -44,6 +48,7 @@ Le graphe ne contient aucun arc à valeur négative.
 		Suppression de 12 comme prédécesseur du sommet 13
 	Sommet 12 supprimé de la matrice
 
+[[5, 5, 4], [6, 5, 5], [7, 9, 6], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1, 4], [13, 9, 6], [4, 2, 13]]
 Étude du sommet 5
 	Sommet 5 possède toujours des prédécesseurs : [4], aucune action réalisée.
 

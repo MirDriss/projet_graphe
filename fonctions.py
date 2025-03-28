@@ -214,8 +214,16 @@ def detecter_circuit_methode_3(matrice):
     copy_matrice = sorted(matrice[1:-1], key=len)
     continuer = True
 
+    # Suppressions des sommets Omega et Alpha
+    for ligne in copy_matrice:
+        predecesseurs = ligne[2:]
+        if 0 in predecesseurs:
+            ligne.remove(0)
+
+
     while continuer:
         continuer = False  # On suppose initialement qu'on ne peut plus continuer
+        print(copy_matrice)
         for ligne in copy_matrice[:]:  # on parcourt une copie de la liste pour permettre des suppressions
             sommet = ligne[0]
             predecesseurs = ligne[2:]
