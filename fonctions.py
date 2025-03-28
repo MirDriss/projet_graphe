@@ -454,11 +454,11 @@ def afficher_rang_sommets(dico):
 
 def selection_fichier():
     fichier = "Graphe/"
-    print("Veuillez choisir la table que vous souhaitez (0-15) ?")
+    print("Veuillez choisir la table que vous souhaitez (1-14) ?")
     choix = int(input(">>> "))
-    while (int(choix) < 0 or int(choix) > 15):
+    while (int(choix) < 1 or int(choix) > 14):
         print(
-            "La valeur que vous avez choisis '" + choix + "' n'est pas acceptable. \nVeuillez choisisr une nouvelle valeur ?")
+            "La valeur que vous avez choisis '" + str(choix) + "' n'est pas acceptable. \nVeuillez choisir une nouvelle valeur ?")
         choix = input(">>> ")
     fichier += "table " + str(choix) + ".txt"
     return fichier

@@ -1,127 +1,141 @@
 
 
---- Ã‰tape : VÃ©rification du graphe ---
-Le graphe ne contient aucun arc Ã  valeur nÃ©gative.
-Ã‰tude du sommet 1
-	Sommet 1 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-		Suppression de 1 comme prÃ©dÃ©cesseur du sommet 3
-	Sommet 1 supprimÃ© de la matrice
+--- Étape : Vérification du graphe ---
+Le graphe ne contient aucun arc à valeur négative.
+[[1, 2], [2, 5], [3, 4, 1], [5, 5, 4], [6, 5, 5], [7, 9, 6], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1, 4], [12, 1, 3], [4, 2, 2, 3], [13, 9, 6, 12]]
+Étude du sommet 1
+	Sommet 1 sans prédécesseurs (ou seulement alpha)
+		Suppression de 1 comme prédécesseur du sommet 3
+	Sommet 1 supprimé de la matrice
 
-Ã‰tude du sommet 2
-	Sommet 2 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-		Suppression de 2 comme prÃ©dÃ©cesseur du sommet 4
-	Sommet 2 supprimÃ© de la matrice
+[[2, 5], [3, 4], [5, 5, 4], [6, 5, 5], [7, 9, 6], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1, 4], [12, 1, 3], [4, 2, 2, 3], [13, 9, 6, 12]]
+Étude du sommet 2
+	Sommet 2 sans prédécesseurs (ou seulement alpha)
+		Suppression de 2 comme prédécesseur du sommet 4
+	Sommet 2 supprimé de la matrice
 
-Ã‰tude du sommet 3
-	Sommet 3 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-		Suppression de 3 comme prÃ©dÃ©cesseur du sommet 12
-		Suppression de 3 comme prÃ©dÃ©cesseur du sommet 4
-	Sommet 3 supprimÃ© de la matrice
+[[3, 4], [5, 5, 4], [6, 5, 5], [7, 9, 6], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1, 4], [12, 1, 3], [4, 2, 3], [13, 9, 6, 12]]
+Étude du sommet 3
+	Sommet 3 sans prédécesseurs (ou seulement alpha)
+		Suppression de 3 comme prédécesseur du sommet 12
+		Suppression de 3 comme prédécesseur du sommet 4
+	Sommet 3 supprimé de la matrice
 
-Ã‰tude du sommet 5
-	Sommet 5 possÃ¨de toujours des prÃ©dÃ©cesseurs : [4], aucune action rÃ©alisÃ©e.
+[[5, 5, 4], [6, 5, 5], [7, 9, 6], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1, 4], [12, 1], [4, 2], [13, 9, 6, 12]]
+Étude du sommet 5
+	Sommet 5 possède toujours des prédécesseurs : [4], aucune action réalisée.
 
-Ã‰tude du sommet 6
-	Sommet 6 possÃ¨de toujours des prÃ©dÃ©cesseurs : [5], aucune action rÃ©alisÃ©e.
+Étude du sommet 6
+	Sommet 6 possède toujours des prédécesseurs : [5], aucune action réalisée.
 
-Ã‰tude du sommet 7
-	Sommet 7 possÃ¨de toujours des prÃ©dÃ©cesseurs : [6], aucune action rÃ©alisÃ©e.
+Étude du sommet 7
+	Sommet 7 possède toujours des prédécesseurs : [6], aucune action réalisée.
 
-Ã‰tude du sommet 8
-	Sommet 8 possÃ¨de toujours des prÃ©dÃ©cesseurs : [7], aucune action rÃ©alisÃ©e.
+Étude du sommet 8
+	Sommet 8 possède toujours des prédécesseurs : [7], aucune action réalisée.
 
-Ã‰tude du sommet 9
-	Sommet 9 possÃ¨de toujours des prÃ©dÃ©cesseurs : [8], aucune action rÃ©alisÃ©e.
+Étude du sommet 9
+	Sommet 9 possède toujours des prédécesseurs : [8], aucune action réalisée.
 
-Ã‰tude du sommet 10
-	Sommet 10 possÃ¨de toujours des prÃ©dÃ©cesseurs : [11], aucune action rÃ©alisÃ©e.
+Étude du sommet 10
+	Sommet 10 possède toujours des prédécesseurs : [11], aucune action réalisée.
 
-Ã‰tude du sommet 11
-	Sommet 11 possÃ¨de toujours des prÃ©dÃ©cesseurs : [4], aucune action rÃ©alisÃ©e.
+Étude du sommet 11
+	Sommet 11 possède toujours des prédécesseurs : [4], aucune action réalisée.
 
-Ã‰tude du sommet 12
-	Sommet 12 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-		Suppression de 12 comme prÃ©dÃ©cesseur du sommet 13
-	Sommet 12 supprimÃ© de la matrice
+Étude du sommet 12
+	Sommet 12 sans prédécesseurs (ou seulement alpha)
+		Suppression de 12 comme prédécesseur du sommet 13
+	Sommet 12 supprimé de la matrice
 
-Ã‰tude du sommet 5
-	Sommet 5 possÃ¨de toujours des prÃ©dÃ©cesseurs : [4], aucune action rÃ©alisÃ©e.
+[[5, 5, 4], [6, 5, 5], [7, 9, 6], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1, 4], [4, 2], [13, 9, 6]]
+Étude du sommet 5
+	Sommet 5 possède toujours des prédécesseurs : [4], aucune action réalisée.
 
-Ã‰tude du sommet 6
-	Sommet 6 possÃ¨de toujours des prÃ©dÃ©cesseurs : [5], aucune action rÃ©alisÃ©e.
+Étude du sommet 6
+	Sommet 6 possède toujours des prédécesseurs : [5], aucune action réalisée.
 
-Ã‰tude du sommet 7
-	Sommet 7 possÃ¨de toujours des prÃ©dÃ©cesseurs : [6], aucune action rÃ©alisÃ©e.
+Étude du sommet 7
+	Sommet 7 possède toujours des prédécesseurs : [6], aucune action réalisée.
 
-Ã‰tude du sommet 8
-	Sommet 8 possÃ¨de toujours des prÃ©dÃ©cesseurs : [7], aucune action rÃ©alisÃ©e.
+Étude du sommet 8
+	Sommet 8 possède toujours des prédécesseurs : [7], aucune action réalisée.
 
-Ã‰tude du sommet 9
-	Sommet 9 possÃ¨de toujours des prÃ©dÃ©cesseurs : [8], aucune action rÃ©alisÃ©e.
+Étude du sommet 9
+	Sommet 9 possède toujours des prédécesseurs : [8], aucune action réalisée.
 
-Ã‰tude du sommet 10
-	Sommet 10 possÃ¨de toujours des prÃ©dÃ©cesseurs : [11], aucune action rÃ©alisÃ©e.
+Étude du sommet 10
+	Sommet 10 possède toujours des prédécesseurs : [11], aucune action réalisée.
 
-Ã‰tude du sommet 11
-	Sommet 11 possÃ¨de toujours des prÃ©dÃ©cesseurs : [4], aucune action rÃ©alisÃ©e.
+Étude du sommet 11
+	Sommet 11 possède toujours des prédécesseurs : [4], aucune action réalisée.
 
-Ã‰tude du sommet 4
-	Sommet 4 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-		Suppression de 4 comme prÃ©dÃ©cesseur du sommet 5
-		Suppression de 4 comme prÃ©dÃ©cesseur du sommet 11
-	Sommet 4 supprimÃ© de la matrice
+Étude du sommet 4
+	Sommet 4 sans prédécesseurs (ou seulement alpha)
+		Suppression de 4 comme prédécesseur du sommet 5
+		Suppression de 4 comme prédécesseur du sommet 11
+	Sommet 4 supprimé de la matrice
 
-Ã‰tude du sommet 5
-	Sommet 5 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-		Suppression de 5 comme prÃ©dÃ©cesseur du sommet 6
-	Sommet 5 supprimÃ© de la matrice
+[[5, 5], [6, 5, 5], [7, 9, 6], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1], [13, 9, 6]]
+Étude du sommet 5
+	Sommet 5 sans prédécesseurs (ou seulement alpha)
+		Suppression de 5 comme prédécesseur du sommet 6
+	Sommet 5 supprimé de la matrice
 
-Ã‰tude du sommet 6
-	Sommet 6 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-		Suppression de 6 comme prÃ©dÃ©cesseur du sommet 7
-		Suppression de 6 comme prÃ©dÃ©cesseur du sommet 13
-	Sommet 6 supprimÃ© de la matrice
+[[6, 5], [7, 9, 6], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1], [13, 9, 6]]
+Étude du sommet 6
+	Sommet 6 sans prédécesseurs (ou seulement alpha)
+		Suppression de 6 comme prédécesseur du sommet 7
+		Suppression de 6 comme prédécesseur du sommet 13
+	Sommet 6 supprimé de la matrice
 
-Ã‰tude du sommet 7
-	Sommet 7 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-		Suppression de 7 comme prÃ©dÃ©cesseur du sommet 8
-	Sommet 7 supprimÃ© de la matrice
+[[7, 9], [8, 2, 7], [9, 5, 8], [10, 1, 11], [11, 1], [13, 9]]
+Étude du sommet 7
+	Sommet 7 sans prédécesseurs (ou seulement alpha)
+		Suppression de 7 comme prédécesseur du sommet 8
+	Sommet 7 supprimé de la matrice
 
-Ã‰tude du sommet 8
-	Sommet 8 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-		Suppression de 8 comme prÃ©dÃ©cesseur du sommet 9
-	Sommet 8 supprimÃ© de la matrice
+[[8, 2], [9, 5, 8], [10, 1, 11], [11, 1], [13, 9]]
+Étude du sommet 8
+	Sommet 8 sans prédécesseurs (ou seulement alpha)
+		Suppression de 8 comme prédécesseur du sommet 9
+	Sommet 8 supprimé de la matrice
 
-Ã‰tude du sommet 9
-	Sommet 9 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-	Sommet 9 supprimÃ© de la matrice
+[[9, 5], [10, 1, 11], [11, 1], [13, 9]]
+Étude du sommet 9
+	Sommet 9 sans prédécesseurs (ou seulement alpha)
+	Sommet 9 supprimé de la matrice
 
-Ã‰tude du sommet 10
-	Sommet 10 possÃ¨de toujours des prÃ©dÃ©cesseurs : [11], aucune action rÃ©alisÃ©e.
+[[10, 1, 11], [11, 1], [13, 9]]
+Étude du sommet 10
+	Sommet 10 possède toujours des prédécesseurs : [11], aucune action réalisée.
 
-Ã‰tude du sommet 11
-	Sommet 11 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-		Suppression de 11 comme prÃ©dÃ©cesseur du sommet 10
-	Sommet 11 supprimÃ© de la matrice
+Étude du sommet 11
+	Sommet 11 sans prédécesseurs (ou seulement alpha)
+		Suppression de 11 comme prédécesseur du sommet 10
+	Sommet 11 supprimé de la matrice
 
-Ã‰tude du sommet 10
-	Sommet 10 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-	Sommet 10 supprimÃ© de la matrice
+[[10, 1], [13, 9]]
+Étude du sommet 10
+	Sommet 10 sans prédécesseurs (ou seulement alpha)
+	Sommet 10 supprimé de la matrice
 
-Ã‰tude du sommet 13
-	Sommet 13 sans prÃ©dÃ©cesseurs (ou seulement alpha)
-	Sommet 13 supprimÃ© de la matrice
+[[13, 9]]
+Étude du sommet 13
+	Sommet 13 sans prédécesseurs (ou seulement alpha)
+	Sommet 13 supprimé de la matrice
 
-Aucun circuit dÃ©tectÃ© dans le graphe.
-Le graphe est un graphe ordonnÃ©, il peut servir de graphe dâ€™ordonnancement.
+[]
+Aucun circuit détecté dans le graphe.
+Le graphe est un graphe ordonné, il peut servir de graphe d’ordonnancement.
 [34m
---- Ã‰tape : Calcul des rangs ---
+--- Étape : Calcul des rangs ---
 Les rangs de chaque sommets sont les suivants :
 Code        Rang    
 ----------------
 0 			 0
-1 			 1
-2 			 1
+1 			 0
+2 			 0
 3 			 0
 4 			 0
 5 			 0
@@ -135,60 +149,60 @@ Code        Rang
 13 			 0
 14 			 1
 [34m
---- Ã‰tape : Calendrier au plus tÃ´t ---
-TÃ¢che 0 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 1 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 2 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 3 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 4 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 5 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 6 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 7 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 8 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 9 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 10 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 11 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 12 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 13 peut commencer au plus tÃ´t Ã  la date 0.
-TÃ¢che 14 peut commencer au plus tÃ´t Ã  la date 9.
+--- Étape : Calendrier au plus tôt ---
+Tâche 0 peut commencer au plus tôt à la date 0.
+Tâche 1 peut commencer au plus tôt à la date 0.
+Tâche 2 peut commencer au plus tôt à la date 0.
+Tâche 3 peut commencer au plus tôt à la date 0.
+Tâche 4 peut commencer au plus tôt à la date 0.
+Tâche 5 peut commencer au plus tôt à la date 0.
+Tâche 6 peut commencer au plus tôt à la date 0.
+Tâche 7 peut commencer au plus tôt à la date 0.
+Tâche 8 peut commencer au plus tôt à la date 0.
+Tâche 9 peut commencer au plus tôt à la date 0.
+Tâche 10 peut commencer au plus tôt à la date 0.
+Tâche 11 peut commencer au plus tôt à la date 0.
+Tâche 12 peut commencer au plus tôt à la date 0.
+Tâche 13 peut commencer au plus tôt à la date 0.
+Tâche 14 peut commencer au plus tôt à la date 9.
 [34m
---- Ã‰tape : Calendrier au plus tard ---
-TÃ¢che 0 peut commencer au plus tard Ã  la date 0.
-TÃ¢che 1 peut commencer au plus tard Ã  la date 7.
-TÃ¢che 2 peut commencer au plus tard Ã  la date 4.
-TÃ¢che 3 peut commencer au plus tard Ã  la date 5.
-TÃ¢che 4 peut commencer au plus tard Ã  la date 7.
-TÃ¢che 5 peut commencer au plus tard Ã  la date 4.
-TÃ¢che 6 peut commencer au plus tard Ã  la date 4.
-TÃ¢che 7 peut commencer au plus tard Ã  la date 0.
-TÃ¢che 8 peut commencer au plus tard Ã  la date 7.
-TÃ¢che 9 peut commencer au plus tard Ã  la date 4.
-TÃ¢che 10 peut commencer au plus tard Ã  la date 8.
-TÃ¢che 11 peut commencer au plus tard Ã  la date 8.
-TÃ¢che 12 peut commencer au plus tard Ã  la date 8.
-TÃ¢che 13 peut commencer au plus tard Ã  la date 0.
-TÃ¢che 14 peut commencer au plus tard Ã  la date 9.
+--- Étape : Calendrier au plus tard ---
+Tâche 0 peut commencer au plus tard à la date 0.
+Tâche 1 peut commencer au plus tard à la date 7.
+Tâche 2 peut commencer au plus tard à la date 4.
+Tâche 3 peut commencer au plus tard à la date 5.
+Tâche 4 peut commencer au plus tard à la date 7.
+Tâche 5 peut commencer au plus tard à la date 4.
+Tâche 6 peut commencer au plus tard à la date 4.
+Tâche 7 peut commencer au plus tard à la date 0.
+Tâche 8 peut commencer au plus tard à la date 7.
+Tâche 9 peut commencer au plus tard à la date 4.
+Tâche 10 peut commencer au plus tard à la date 8.
+Tâche 11 peut commencer au plus tard à la date 8.
+Tâche 12 peut commencer au plus tard à la date 8.
+Tâche 13 peut commencer au plus tard à la date 0.
+Tâche 14 peut commencer au plus tard à la date 9.
 [34m
---- Ã‰tape : Calcul des marges ---
-TÃ¢che 0 a une marge de 0.
-TÃ¢che 1 a une marge de 7.
-TÃ¢che 2 a une marge de 4.
-TÃ¢che 3 a une marge de 5.
-TÃ¢che 4 a une marge de 7.
-TÃ¢che 5 a une marge de 4.
-TÃ¢che 6 a une marge de 4.
-TÃ¢che 7 a une marge de 0.
-TÃ¢che 8 a une marge de 7.
-TÃ¢che 9 a une marge de 4.
-TÃ¢che 10 a une marge de 8.
-TÃ¢che 11 a une marge de 8.
-TÃ¢che 12 a une marge de 8.
-TÃ¢che 13 a une marge de 0.
-TÃ¢che 14 a une marge de 0.
+--- Étape : Calcul des marges ---
+Tâche 0 a une marge de 0.
+Tâche 1 a une marge de 7.
+Tâche 2 a une marge de 4.
+Tâche 3 a une marge de 5.
+Tâche 4 a une marge de 7.
+Tâche 5 a une marge de 4.
+Tâche 6 a une marge de 4.
+Tâche 7 a une marge de 0.
+Tâche 8 a une marge de 7.
+Tâche 9 a une marge de 4.
+Tâche 10 a une marge de 8.
+Tâche 11 a une marge de 8.
+Tâche 12 a une marge de 8.
+Tâche 13 a une marge de 0.
+Tâche 14 a une marge de 0.
 [34m
---- Ã‰tape : Chemins critiques ---
+--- Étape : Chemins critiques ---
 Chemin(s) critique(s) :
-La tÃ¢che 0 est critique.
-La tÃ¢che 7 est critique.
-La tÃ¢che 13 est critique.
-La tÃ¢che 14 est critique.
+La tâche 0 est critique.
+La tâche 7 est critique.
+La tâche 13 est critique.
+La tâche 14 est critique.
