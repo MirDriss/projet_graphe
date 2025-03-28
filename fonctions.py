@@ -1,36 +1,51 @@
-def lire_fichier(fichier): # fonction pour lire le fichier txt
+def lire_fichier(fichier):  # fonction pour lire le fichier txt
 
     matrice = []
-    compteur = 0
-    with open(fichier, 'r') as f: # assure la fermeture du fichier
+    with open(fichier, 'r') as f:  # assure la fermeture du fichier
 
-        matrice.append([0, 0]) # ajout de alpha
+        matrice.append([0, 0])  # ajout de alpha
 
         for ligne in f:
-
             matrice.append(list(map(int, ligne.split())))
-            #ligne.split() découpe la ligne en une liste de chaînes de caractères en utilisant les esapces pour separer
-            #map(int, ...) convertit chaque élément en entier.
-            #list(...) transforme le tout en une liste d'entiers, qu'on ajoute à contraintes
+            # ligne.split() découpe la ligne en une liste de chaînes de caractères en utilisant les esapces pour separer
+            # map(int, ...) convertit chaque élément en entier.
+            # list(...) transforme le tout en une liste d'entiers, qu'on ajoute à contraintes
 
-        matrice.append([len(matrice),0,len(matrice)-1]) # ajout de omega
+        for i in range(1, len(matrice)):
+            if len(matrice[i]) == 2:
+                matrice[i].append(0)
+
+        sommet = [ligne[0] for ligne in matrice[1:]]
+        predecesseur_existant = []
+        for ligne in matrice[1:]:
+            predecesseur_existant.extend(ligne[2:])
+
+        tache_sans_successeurs = []
+        for i in sommet:
+            if i in predecesseur_existant:
+                pass
+            else:
+                tache_sans_successeurs.append(i)
+
+        tache_omega = len(matrice)
+        matrice.append([tache_omega, 0] + tache_sans_successeurs)  # ajout de omega
+
     return matrice
-
 
 
 def nbr_arc(graphe):
     nbr = -1
     for i in range(len(graphe)):
         nbr += len(graphe[i]) - 2
-        if(len(graphe[i]) == 2):
-            nbr+=1
+        if (len(graphe[i]) == 2):
+            nbr += 1
     return nbr
 
 
 def afficher_matrice(matrice):
     print()
     # Affiche l'en-tête du tableau
-    print(f"{'Code':<12}{'Durée':<8}{'Prédécesseurs'}")
+    print(f"{'Sommet':<12}{'Durée':<8}{'Prédécesseurs'}")
     print("-" * 30)  # Ligne de séparation
 
     # Parcours chaque ligne de la matrice pour afficher les informations
@@ -68,48 +83,40 @@ def affichage_graphe_ordonnancement(matrice):
     for i in range(len(matrice)):
         if dico_succ[i] != []:
             for j in (dico_succ[i]):
-                print(i," -> ", j, " = ", matrice[i][1])
+                print(i, " -> ", j, " = ", matrice[i][1])
     return
 
-def negative_duree(matrice): # verifie s'il ya des arcs négatifs
 
+def negative_duree(matrice):  # verifie s'il ya des arcs négatifs
     for ligne in matrice:
-        if ( ligne[1] < 0):
+        if (ligne[1] < 0):
             print("Le graphe contient au moins un arc à valeur négative.")
             return True
-        print("Le graphe ne contient aucun arc à valeur négative.")
+    print("Le graphe ne contient aucun arc à valeur négative.")
     return False
 
 
 def dico_successeur(matrice):
-
     successeur = {}
     pas_de_predecesseur = []
     for i in range(len(matrice)):
         successeur[i] = []
-        if(len(matrice[i]) == 2 and matrice[i][0]!= 0): #on récupère les taches qui n'ont pas de préd et ceux qui sont pas alpha --> successeurs de alpha
+        if (len(matrice[i]) == 2 and matrice[i][0] != 0):  # on récupère les taches qui n'ont pas de préd et ceux qui sont pas alpha --> successeurs de alpha
             pas_de_predecesseur.append(matrice[i][0])
 
-
-
-    for ligne in matrice[1:-1]: # pas alpha ni omega
-        tache = ligne[0] # je recupere le sommet
-        for predecesseur in ligne[2:]: # je recupere les sommets qui sont predecesseurs
+    for ligne in matrice[1:-1]:  # pas alpha ni omega
+        tache = ligne[0]  # je recupere le sommet
+        for predecesseur in ligne[2:]:  # je recupere les sommets qui sont predecesseurs
             successeur[predecesseur].append(tache)
-            #exemple : (2,2,3) --> 2 est un successeur de 3
+            # exemple : (2,2,3) --> 2 est un successeur de 3
 
-    for tache,succ in successeur.items():
-        if not(succ) and (tache != matrice[-1][0] and tache!= matrice[0][0]):# on regarde ceux qui n'ont pas de successeurs et ceux qui sont pas alpha et omega
-            successeur[tache].append(matrice[-1][0]) # successeur devient omega
-        if(tache == matrice[0][0]):
+    for tache, succ in successeur.items():
+        if not (succ) and (tache != matrice[-1][0] and tache != matrice[0][
+            0]):  # on regarde ceux qui n'ont pas de successeurs et ceux qui sont pas alpha et omega
+            successeur[tache].append(matrice[-1][0])  # successeur devient omega
+        if (tache == matrice[0][0]):
             for nb in pas_de_predecesseur:
                 successeur[0].append(nb)
-
-        """if succ:
-            print("Tache :", tache, " successeur : ", {', '.join(map(str, succ))})
-        else:
-            print("Tache :", tache, " successeur : Aucun")"""
-
 
     return successeur
 
@@ -119,14 +126,14 @@ def dico_fermeture_transitive(matrice):
 
     n = len(matrice)
 
-    for i in range(n):   # parcourt tout les sommets
-        for sommet in dico_succ :   # parcourt chaque sommets
+    for i in range(n):  # parcourt tout les sommets
+        for sommet in dico_succ:  # parcourt chaque sommets
 
-            nouveaux_succ = set(dico_succ[sommet]) # utilisation du set pour eviter les doublons d'avance
+            nouveaux_succ = set(dico_succ[sommet])  # utilisation du set pour eviter les doublons d'avance
 
-            for sucesseur in dico_succ[sommet]: # je regarde les successeurs du sommet en question
+            for sucesseur in dico_succ[sommet]:  # je regarde les successeurs du sommet en question
 
-                nouveaux_succ.update(dico_succ[sucesseur]) # j'ajoute les successeurs du successeur
+                nouveaux_succ.update(dico_succ[sucesseur])  # j'ajoute les successeurs du successeur
 
             dico_succ[sommet] = list(nouveaux_succ)
 
@@ -134,23 +141,20 @@ def dico_fermeture_transitive(matrice):
 
 
 def matrice_transitive(matrice):
-
     dico_matrice = dico_fermeture_transitive(matrice)
 
     n = len(matrice)
-    matrice_trans = [[0] * n for _ in range(n)] # initialisation a 0
+    matrice_trans = [[0] * n for _ in range(n)]  # initialisation a 0
 
-    for sommets,succ in dico_matrice.items():
+    for sommets, succ in dico_matrice.items():
         for tache in succ:
             matrice_trans[sommets][tache] = 1
 
     return matrice_trans
 
+
 def afficher_matrice_transitive(matrice):
-
     MT = matrice_transitive(matrice)
-
-    dico_succ = dico_fermeture_transitive(matrice)
 
     n = len(MT)
 
@@ -160,12 +164,10 @@ def afficher_matrice_transitive(matrice):
         print(f"{i:^5}", end=" ")  # Largeur fixe pour chaque colonne
     print()  # Nouvelle ligne
 
-
-
     for i in range(n):
         print(f"{i:^5}", end=" ")  # Indice de ligne centré
         for j in range(n):
-            if ( MT[i][j] == 0 ):
+            if (MT[i][j] == 0):
                 print(f"{'0':^5}", end=" ")
             else:
                 print(f"{'1':^5}", end=" ")
@@ -173,9 +175,9 @@ def afficher_matrice_transitive(matrice):
         print()
 
 
-#faire une fonction qui fait la matrice des valeurs
+# faire une fonction qui fait la matrice des valeurs
 
-def matrice_valeur(matrice):
+def matrice_valeur(matrice): # Affiche la durées des tache associé aux arcs du graphe
     print("\nMatrice des valeurs")
     matrice_affichage = []
     n = len(matrice)
@@ -197,42 +199,80 @@ def matrice_valeur(matrice):
         print()  # Nouvelle ligne
 
 
-
-
-
-
 def detecter_circuit_methode_1(matrice):
-
     MT = matrice_transitive(matrice)
 
     for i in range(len(MT)):
-        if  MT[i][i] == 1:
+        if MT[i][i] == 1: # Si un sommet redirige vers lui même, alors circuit
             print("Le graphe contient un circuit.")
             return True
     print("Le graphe ne contient aucun circuit.")
     return False
 
-def detecter_circuit_methode_2(matrice):
 
-    changement = True
+def detecter_circuit_methode_3(matrice):
     copy_matrice = sorted(matrice[1:-1], key=len)
-    print(copy_matrice)
+    continuer = True
+
+    while continuer:
+        continuer = False  # On suppose initialement qu'on ne peut plus continuer
+        for ligne in copy_matrice[:]:  # on parcourt une copie de la liste pour permettre des suppressions
+            sommet = ligne[0]
+            predecesseurs = ligne[2:]
+
+            print(f"Étude du sommet {sommet}")
+
+            # Si aucun prédécesseur ou seulement alpha (0)
+            if len(predecesseurs) == 0 or predecesseurs == [0]:
+                continuer = True  # On pourra continuer à chercher après cette suppression
+                print(f"\tSommet {sommet} sans prédécesseurs (ou seulement alpha)")
+
+                # On enlève le sommet comme prédécesseur des autres
+                for autre_ligne in copy_matrice:
+                    if sommet in autre_ligne[2:]:
+                        autre_ligne.remove(sommet)
+                        print(f"\t\tSuppression de {sommet} comme prédécesseur du sommet {autre_ligne[0]}")
+
+                # On enlève ce sommet de la liste principale
+                copy_matrice.remove(ligne)
+                print(f"\tSommet {sommet} supprimé de la matrice\n")
+                break  # On sort pour recommencer le parcours au début
+            else:
+                print(f"\tSommet {sommet} possède toujours des prédécesseurs : {predecesseurs}, aucune action réalisée.\n")
+
+    # Si aucune suppression n'est faite pendant tout le parcours, continuer reste False
+
+    # Après traitement complet
+    if len(copy_matrice) == 0:
+        print("Aucun circuit détecté dans le graphe.")
+        return False
+    else:
+        print("Circuit détecté dans le graphe !")
+        print("Sommets restants impliqués dans un circuit :", [ligne[0] for ligne in copy_matrice])
+        return True
+
+
+
+
+def detecter_circuit_methode_2(matrice):
+    changement = True
+    copy_matrice = sorted(matrice[1:-1], key=len) # Tri pour rapidement reperer les sommets sans predecesseur
+
 
     while changement:
-
-
-        if(len(copy_matrice) !=0):
+        if (len(copy_matrice) != 0):
             ligne = copy_matrice[0]
-            if ( len(ligne) < 3): # on vérifie si le sommet n'a pas de predecesseur
-                sommet = ligne[0] # on récupère le sommet qui est sans predecesseur
-                print("avant suppression de la ligne :",copy_matrice)
-                copy_matrice.pop(copy_matrice.index(ligne)) # on supprime la ligne ou y a le sommet en question
-                print("apres suppression de la ligne :",copy_matrice)
-                for i in range(len(copy_matrice)):  # on enlève là où le sommet apparait comme prédecesseur pour les autres sommets
+            print("Etude du sommet " + str(ligne[0]))
+            if (len(ligne) < 3 or ligne[2]==0):  # on vérifie si le sommet n'a pas de predecesseur
+                sommet = ligne[0]  # on récupère le sommet qui est sans predecesseur
+                print("avant suppression de la ligne :", copy_matrice)
+                copy_matrice.pop(copy_matrice.index(ligne))  # on supprime la ligne ou y a le sommet en question
+                print("apres suppression de la ligne :", copy_matrice)
+                for i in range(
+                        len(copy_matrice)):  # on enlève là où le sommet apparait comme prédecesseur pour les autres sommets
                     if sommet in copy_matrice[i][2:]:
-
-                        print("liste des predecesseur",copy_matrice[i][2:])
-                        print("sommet à supprimer",sommet)
+                        print("liste des predecesseur", copy_matrice[i][2:])
+                        print("sommet à supprimer", sommet)
                         print()
                         copy_matrice[i].remove(sommet)
 
@@ -243,9 +283,7 @@ def detecter_circuit_methode_2(matrice):
             changement = False
             print(copy_matrice)
 
-
     if (len(copy_matrice) == 0):
-
         print("Il n'y pas de circuit")
         return False
 
@@ -253,13 +291,15 @@ def detecter_circuit_methode_2(matrice):
     return True
 
 
-def is_graphe_ordonnancement (matrice):
+def is_graphe_ordonnancement(matrice):
     if negative_duree(matrice):
-        print("Le graphe n'est pas un graphe ordonné, on ne peut pas se servir de celui-ci comme graphe d’ordonnancement.")
-
+        print(
+            "Le graphe n'est pas un graphe ordonné car il contient au moins un sommet à durée négative.\nOn ne peut pas se servir de celui-ci comme graphe d’ordonnancement.")
         return False
-    elif detecter_circuit_methode_2(matrice):
-        print("Le graphe n'est pas un graphe ordonné, on ne peut pas se servir de celui-ci comme graphe d’ordonnancement.")
+
+    elif detecter_circuit_methode_3(matrice): # If True, on ne peut pas utiliser ce graphe
+        print(
+            "Le graphe n'est pas un graphe ordonné.")
         return False
     print("Le graphe est un graphe ordonné, il peut servir de graphe d’ordonnancement.")
     return True
@@ -274,31 +314,56 @@ def rang_sommet_matrice(matrice):
     dico_rang = {}
     dico_succ = dico_successeur(matrice)
     S_actuel = []
-    for i in range(len(matrice)): # détection des Sommets de rangs 0 (Ceux qui n'ont pas de prédécesseurs)
+    for i in range(len(matrice)):  # détection des Sommets de rangs 0 (Ceux qui n'ont pas de prédécesseurs)
         dico_rang[i] = -1
-        if(len(matrice[i]) == 2):
+        if (len(matrice[i]) == 2):
             dico_rang[i] = 0
             S_actuel.append(i)
     S_suivant = []
-    k=1
+    k = 1
     while S_actuel != []:
         for i in range(len(matrice)):
             for j in range(2, len(matrice[i])):
-                if(matrice[i][j]) in S_actuel:
+                if (matrice[i][j]) in S_actuel:
                     S_suivant.append(i)
         for i in S_suivant:
             dico_rang[i] = k
-        k+=1
+        k += 1
         S_actuel = S_suivant
         S_suivant = []
     return dico_rang
 
 
+def rang_sommet_matrice2(matrice):
+    dico_rang = {i: -1 for i in range(len(matrice))}
+    k = 0
+    rang_restant = [ligne[0] for ligne in matrice]
+
+    for ligne in matrice:
+        if (len(ligne) == 2):
+            dico_rang[ligne[0]] = k
+            rang_restant.remove(ligne[0])
+    k += 1
+
+    while rang_restant != []:
+        nouveaux_ranges = []
+
+        for i in rang_restant:
+            if all(j not in rang_restant for j in matrice[i][2:]):
+                dico_rang[i] = k
+                nouveaux_ranges.append(i)
+
+        for i in nouveaux_ranges:
+            rang_restant.remove(i)
+
+        k += 1
+
+        return dico_rang
+
 
 def ranger_ordre_graphe_sommet(graphe):
     dico_sommet = rang_sommet_matrice(graphe)
     graphe_ordonnee = {}
-
 
     while dico_sommet:  # Faire temps que le dico n'est pas vide
         sommet_min = min(dico_sommet, key=dico_sommet.get)  # trouver la plus petite valeur et clef
@@ -310,17 +375,17 @@ def ranger_ordre_graphe_sommet(graphe):
     return graphe_ordonnee
 
 
-
 def predecesseur(matrice, indice):
     pred = []
     if len(matrice[indice]) > 2:
         pred = matrice[indice][2:]
     return pred
 
+
 def graphe_vers_dico(graphe):
     tache = {}
     for i in range(len(graphe)):
-        tache[i] = {'duree' : graphe[i][1], 'predecesseurs' : predecesseur(graphe, i)}
+        tache[i] = {'duree': graphe[i][1], 'predecesseurs': predecesseur(graphe, i)}
     return tache
 
 
@@ -358,17 +423,16 @@ def calculer_dates_au_plus_tard(matrice):
     return dates_au_plus_tard
 
 
-
 def afficher_dates_au_plus_tot(dates_au_plus_tot):
     for tache, date in dates_au_plus_tot.items():
         print(f"Tâche {tache} peut commencer au plus tôt à la date {date}.")
     return
 
+
 def afficher_dates_au_plus_tard(dates_au_plus_tot):
     for tache, date in dates_au_plus_tot.items():
         print(f"Tâche {tache} peut commencer au plus tard à la date {date}.")
     return
-
 
 
 def afficher_rang_sommets(dico):
@@ -379,21 +443,18 @@ def afficher_rang_sommets(dico):
         print(i, "\t" * 3, dico[i])
     return
 
-               
-                
 
 def selection_fichier():
     fichier = "Graphe/"
     print("Veuillez choisir la table que vous souhaitez (0-15) ?")
-    choix = input(">>> ")
-    while (int(choix) < 0  or int(choix) > 15):
-        print("La valeur que vous avez choisis '" + choix + "' n'est pas acceptable. \nVeuillez choisisr une nouvelle valeur ?")
+    choix = int(input(">>> "))
+    while (int(choix) < 0 or int(choix) > 15):
+        print(
+            "La valeur que vous avez choisis '" + choix + "' n'est pas acceptable. \nVeuillez choisisr une nouvelle valeur ?")
         choix = input(">>> ")
-    fichier += "table " + choix + ".txt"
+    fichier += "table " + str(choix) + ".txt"
     return fichier
 
 
-
-                
-                
-
+def afficher_chemin_critique():
+    pass

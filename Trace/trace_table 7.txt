@@ -1,0 +1,145 @@
+
+
+--- Étape : Vérification du graphe ---
+Le graphe ne contient aucun arc à valeur négative.
+Étude du sommet 2
+	Sommet 2 possède toujours des prédécesseurs : [7], aucune action réalisée.
+
+Étude du sommet 3
+	Sommet 3 possède toujours des prédécesseurs : [6], aucune action réalisée.
+
+Étude du sommet 4
+	Sommet 4 sans prédécesseurs (ou seulement alpha)
+		Suppression de 4 comme prédécesseur du sommet 5
+		Suppression de 4 comme prédécesseur du sommet 1
+	Sommet 4 supprimé de la matrice
+
+Étude du sommet 2
+	Sommet 2 possède toujours des prédécesseurs : [7], aucune action réalisée.
+
+Étude du sommet 3
+	Sommet 3 possède toujours des prédécesseurs : [6], aucune action réalisée.
+
+Étude du sommet 5
+	Sommet 5 sans prédécesseurs (ou seulement alpha)
+		Suppression de 5 comme prédécesseur du sommet 8
+	Sommet 5 supprimé de la matrice
+
+Étude du sommet 2
+	Sommet 2 possède toujours des prédécesseurs : [7], aucune action réalisée.
+
+Étude du sommet 3
+	Sommet 3 possède toujours des prédécesseurs : [6], aucune action réalisée.
+
+Étude du sommet 6
+	Sommet 6 sans prédécesseurs (ou seulement alpha)
+		Suppression de 6 comme prédécesseur du sommet 3
+		Suppression de 6 comme prédécesseur du sommet 10
+	Sommet 6 supprimé de la matrice
+
+Étude du sommet 2
+	Sommet 2 possède toujours des prédécesseurs : [7], aucune action réalisée.
+
+Étude du sommet 3
+	Sommet 3 sans prédécesseurs (ou seulement alpha)
+		Suppression de 3 comme prédécesseur du sommet 9
+	Sommet 3 supprimé de la matrice
+
+Étude du sommet 2
+	Sommet 2 possède toujours des prédécesseurs : [7], aucune action réalisée.
+
+Étude du sommet 7
+	Sommet 7 sans prédécesseurs (ou seulement alpha)
+		Suppression de 7 comme prédécesseur du sommet 2
+		Suppression de 7 comme prédécesseur du sommet 8
+	Sommet 7 supprimé de la matrice
+
+Étude du sommet 2
+	Sommet 2 sans prédécesseurs (ou seulement alpha)
+	Sommet 2 supprimé de la matrice
+
+Étude du sommet 10
+	Sommet 10 sans prédécesseurs (ou seulement alpha)
+		Suppression de 10 comme prédécesseur du sommet 1
+	Sommet 10 supprimé de la matrice
+
+Étude du sommet 1
+	Sommet 1 sans prédécesseurs (ou seulement alpha)
+		Suppression de 1 comme prédécesseur du sommet 9
+	Sommet 1 supprimé de la matrice
+
+Étude du sommet 8
+	Sommet 8 sans prédécesseurs (ou seulement alpha)
+		Suppression de 8 comme prédécesseur du sommet 9
+	Sommet 8 supprimé de la matrice
+
+Étude du sommet 9
+	Sommet 9 sans prédécesseurs (ou seulement alpha)
+	Sommet 9 supprimé de la matrice
+
+Aucun circuit détecté dans le graphe.
+Le graphe est un graphe ordonné, il peut servir de graphe d’ordonnancement.
+[34m
+--- Étape : Calcul des rangs ---
+Les rangs de chaque sommets sont les suivants :
+Code        Rang    
+----------------
+0 			 0
+1 			 0
+2 			 0
+3 			 0
+4 			 1
+5 			 0
+6 			 1
+7 			 1
+8 			 0
+9 			 0
+10 			 0
+11 			 1
+[34m
+--- Étape : Calendrier au plus tôt ---
+Tâche 0 peut commencer au plus tôt à la date 0.
+Tâche 1 peut commencer au plus tôt à la date 0.
+Tâche 2 peut commencer au plus tôt à la date 0.
+Tâche 3 peut commencer au plus tôt à la date 0.
+Tâche 4 peut commencer au plus tôt à la date 0.
+Tâche 5 peut commencer au plus tôt à la date 0.
+Tâche 6 peut commencer au plus tôt à la date 0.
+Tâche 7 peut commencer au plus tôt à la date 0.
+Tâche 8 peut commencer au plus tôt à la date 0.
+Tâche 9 peut commencer au plus tôt à la date 0.
+Tâche 10 peut commencer au plus tôt à la date 0.
+Tâche 11 peut commencer au plus tôt à la date 9.
+[34m
+--- Étape : Calendrier au plus tard ---
+Tâche 0 peut commencer au plus tard à la date -1.
+Tâche 1 peut commencer au plus tard à la date 8.
+Tâche 2 peut commencer au plus tard à la date 7.
+Tâche 3 peut commencer au plus tard à la date 6.
+Tâche 4 peut commencer au plus tard à la date 5.
+Tâche 5 peut commencer au plus tard à la date 4.
+Tâche 6 peut commencer au plus tard à la date 3.
+Tâche 7 peut commencer au plus tard à la date 2.
+Tâche 8 peut commencer au plus tard à la date 1.
+Tâche 9 peut commencer au plus tard à la date 0.
+Tâche 10 peut commencer au plus tard à la date -1.
+Tâche 11 peut commencer au plus tard à la date 9.
+[34m
+--- Étape : Calcul des marges ---
+Tâche 0 a une marge de -1.
+Tâche 1 a une marge de 8.
+Tâche 2 a une marge de 7.
+Tâche 3 a une marge de 6.
+Tâche 4 a une marge de 5.
+Tâche 5 a une marge de 4.
+Tâche 6 a une marge de 3.
+Tâche 7 a une marge de 2.
+Tâche 8 a une marge de 1.
+Tâche 9 a une marge de 0.
+Tâche 10 a une marge de -1.
+Tâche 11 a une marge de 0.
+[34m
+--- Étape : Chemins critiques ---
+Chemin(s) critique(s) :
+La tâche 9 est critique.
+La tâche 11 est critique.

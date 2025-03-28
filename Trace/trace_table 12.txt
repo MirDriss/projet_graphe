@@ -1,0 +1,82 @@
+
+
+--- Étape : Vérification du graphe ---
+Le graphe ne contient aucun arc à valeur négative.
+Étude du sommet 1
+	Sommet 1 sans prédécesseurs (ou seulement alpha)
+		Suppression de 1 comme prédécesseur du sommet 4
+		Suppression de 1 comme prédécesseur du sommet 12
+		Suppression de 1 comme prédécesseur du sommet 3
+	Sommet 1 supprimé de la matrice
+
+Étude du sommet 2
+	Sommet 2 sans prédécesseurs (ou seulement alpha)
+		Suppression de 2 comme prédécesseur du sommet 4
+		Suppression de 2 comme prédécesseur du sommet 3
+	Sommet 2 supprimé de la matrice
+
+Étude du sommet 5
+	Sommet 5 possède toujours des prédécesseurs : [4], aucune action réalisée.
+
+Étude du sommet 6
+	Sommet 6 possède toujours des prédécesseurs : [5], aucune action réalisée.
+
+Étude du sommet 7
+	Sommet 7 possède toujours des prédécesseurs : [4], aucune action réalisée.
+
+Étude du sommet 10
+	Sommet 10 possède toujours des prédécesseurs : [9], aucune action réalisée.
+
+Étude du sommet 4
+	Sommet 4 sans prédécesseurs (ou seulement alpha)
+		Suppression de 4 comme prédécesseur du sommet 5
+		Suppression de 4 comme prédécesseur du sommet 7
+		Suppression de 4 comme prédécesseur du sommet 9
+	Sommet 4 supprimé de la matrice
+
+Étude du sommet 5
+	Sommet 5 sans prédécesseurs (ou seulement alpha)
+		Suppression de 5 comme prédécesseur du sommet 6
+		Suppression de 5 comme prédécesseur du sommet 8
+	Sommet 5 supprimé de la matrice
+
+Étude du sommet 6
+	Sommet 6 sans prédécesseurs (ou seulement alpha)
+		Suppression de 6 comme prédécesseur du sommet 12
+		Suppression de 6 comme prédécesseur du sommet 11
+	Sommet 6 supprimé de la matrice
+
+Étude du sommet 7
+	Sommet 7 sans prédécesseurs (ou seulement alpha)
+		Suppression de 7 comme prédécesseur du sommet 8
+	Sommet 7 supprimé de la matrice
+
+Étude du sommet 10
+	Sommet 10 possède toujours des prédécesseurs : [9], aucune action réalisée.
+
+Étude du sommet 9
+	Sommet 9 possède toujours des prédécesseurs : [3], aucune action réalisée.
+
+Étude du sommet 12
+	Sommet 12 sans prédécesseurs (ou seulement alpha)
+	Sommet 12 supprimé de la matrice
+
+Étude du sommet 10
+	Sommet 10 possède toujours des prédécesseurs : [9], aucune action réalisée.
+
+Étude du sommet 9
+	Sommet 9 possède toujours des prédécesseurs : [3], aucune action réalisée.
+
+Étude du sommet 3
+	Sommet 3 possède toujours des prédécesseurs : [10], aucune action réalisée.
+
+Étude du sommet 8
+	Sommet 8 possède toujours des prédécesseurs : [9], aucune action réalisée.
+
+Étude du sommet 11
+	Sommet 11 possède toujours des prédécesseurs : [8, 10], aucune action réalisée.
+
+Circuit détecté dans le graphe !
+Sommets restants impliqués dans un circuit : [10, 9, 3, 8, 11]
+Le graphe n'est pas un graphe ordonné.
+[34mCe graphe ne peut pas être utilisé pour l'ordonnancement.

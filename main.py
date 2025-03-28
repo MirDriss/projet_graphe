@@ -4,13 +4,15 @@ fichier = "graphe.txt"  # Nom du fichier à lire
 matrice = lire_fichier(fichier)
 ordo = afficher_matrice(matrice)
 
-matrice_valeur(matrice)
+print(detecter_circuit_methode_3(matrice))
+
+# matrice_valeur(matrice)
 
 
 
 
 
-
+"""
 run = True
 
 while run: # Tant que l’utilisateur décide de tester un tableau de contraintes faire
@@ -50,7 +52,7 @@ while run: # Tant que l’utilisateur décide de tester un tableau de contrainte
         choix = input(">>> ")
     if choix == "n":
         run = False
-
+"""
 
 
 
