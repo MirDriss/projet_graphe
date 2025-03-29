@@ -1,0 +1,200 @@
+
+
+[34m--- Étape : Vérification du graphe ---
+Le graphe ne contient aucun arc à valeur négative.
+[[1, 10], [2, 10], [5, 4, 4], [6, 2, 5], [7, 2, 4], [3, 9, 1, 2], [4, 5, 1, 2], [9, 8, 3, 4], [10, 12, 3, 9], [12, 20, 1, 6], [8, 4, 5, 7, 9], [11, 2, 6, 8, 10]]
+Étude du sommet 1
+	Sommet 1 sans prédécesseurs (ou seulement alpha)
+		Suppression de 1 comme prédécesseur du sommet 3
+		Suppression de 1 comme prédécesseur du sommet 4
+		Suppression de 1 comme prédécesseur du sommet 12
+	Sommet 1 supprimé de la matrice
+
+[[2, 10], [5, 4, 4], [6, 2, 5], [7, 2, 4], [3, 9, 2], [4, 5, 2], [9, 8, 3, 4], [10, 12, 3, 9], [12, 20, 6], [8, 4, 5, 7, 9], [11, 2, 6, 8, 10]]
+Étude du sommet 2
+	Sommet 2 sans prédécesseurs (ou seulement alpha)
+		Suppression de 2 comme prédécesseur du sommet 3
+		Suppression de 2 comme prédécesseur du sommet 4
+	Sommet 2 supprimé de la matrice
+
+[[5, 4, 4], [6, 2, 5], [7, 2, 4], [3, 9], [4, 5], [9, 8, 3, 4], [10, 12, 3, 9], [12, 20, 6], [8, 4, 5, 7, 9], [11, 2, 6, 8, 10]]
+Étude du sommet 5
+	Sommet 5 possède toujours des prédécesseurs : [4], aucune action réalisée.
+
+Étude du sommet 6
+	Sommet 6 possède toujours des prédécesseurs : [5], aucune action réalisée.
+
+Étude du sommet 7
+	Sommet 7 possède toujours des prédécesseurs : [4], aucune action réalisée.
+
+Étude du sommet 3
+	Sommet 3 sans prédécesseurs (ou seulement alpha)
+		Suppression de 3 comme prédécesseur du sommet 9
+		Suppression de 3 comme prédécesseur du sommet 10
+	Sommet 3 supprimé de la matrice
+
+[[5, 4, 4], [6, 2, 5], [7, 2, 4], [4, 5], [9, 8, 4], [10, 12, 9], [12, 20, 6], [8, 4, 5, 7, 9], [11, 2, 6, 8, 10]]
+Étude du sommet 5
+	Sommet 5 possède toujours des prédécesseurs : [4], aucune action réalisée.
+
+Étude du sommet 6
+	Sommet 6 possède toujours des prédécesseurs : [5], aucune action réalisée.
+
+Étude du sommet 7
+	Sommet 7 possède toujours des prédécesseurs : [4], aucune action réalisée.
+
+Étude du sommet 4
+	Sommet 4 sans prédécesseurs (ou seulement alpha)
+		Suppression de 4 comme prédécesseur du sommet 5
+		Suppression de 4 comme prédécesseur du sommet 7
+		Suppression de 4 comme prédécesseur du sommet 9
+	Sommet 4 supprimé de la matrice
+
+[[5, 4], [6, 2, 5], [7, 2], [9, 8], [10, 12, 9], [12, 20, 6], [8, 4, 5, 7, 9], [11, 2, 6, 8, 10]]
+Étude du sommet 5
+	Sommet 5 sans prédécesseurs (ou seulement alpha)
+		Suppression de 5 comme prédécesseur du sommet 6
+		Suppression de 5 comme prédécesseur du sommet 8
+	Sommet 5 supprimé de la matrice
+
+[[6, 2], [7, 2], [9, 8], [10, 12, 9], [12, 20, 6], [8, 4, 7, 9], [11, 2, 6, 8, 10]]
+Étude du sommet 6
+	Sommet 6 sans prédécesseurs (ou seulement alpha)
+		Suppression de 6 comme prédécesseur du sommet 12
+		Suppression de 6 comme prédécesseur du sommet 11
+	Sommet 6 supprimé de la matrice
+
+[[7, 2], [9, 8], [10, 12, 9], [12, 20], [8, 4, 7, 9], [11, 2, 8, 10]]
+Étude du sommet 7
+	Sommet 7 sans prédécesseurs (ou seulement alpha)
+		Suppression de 7 comme prédécesseur du sommet 8
+	Sommet 7 supprimé de la matrice
+
+[[9, 8], [10, 12, 9], [12, 20], [8, 4, 9], [11, 2, 8, 10]]
+Étude du sommet 9
+	Sommet 9 sans prédécesseurs (ou seulement alpha)
+		Suppression de 9 comme prédécesseur du sommet 10
+		Suppression de 9 comme prédécesseur du sommet 8
+	Sommet 9 supprimé de la matrice
+
+[[10, 12], [12, 20], [8, 4], [11, 2, 8, 10]]
+Étude du sommet 10
+	Sommet 10 sans prédécesseurs (ou seulement alpha)
+		Suppression de 10 comme prédécesseur du sommet 11
+	Sommet 10 supprimé de la matrice
+
+[[12, 20], [8, 4], [11, 2, 8]]
+Étude du sommet 12
+	Sommet 12 sans prédécesseurs (ou seulement alpha)
+	Sommet 12 supprimé de la matrice
+
+[[8, 4], [11, 2, 8]]
+Étude du sommet 8
+	Sommet 8 sans prédécesseurs (ou seulement alpha)
+		Suppression de 8 comme prédécesseur du sommet 11
+	Sommet 8 supprimé de la matrice
+
+[[11, 2]]
+Étude du sommet 11
+	Sommet 11 sans prédécesseurs (ou seulement alpha)
+	Sommet 11 supprimé de la matrice
+
+[]
+Aucun circuit détecté dans le graphe.
+Le graphe est un graphe ordonné, il peut servir de graphe d’ordonnancement.
+[34m
+--- Étape : Calcul des rangs ---[32m
+Les rangs de chaque sommets sont les suivants :
+Code        Rang    
+----------------
+0 			 0
+1 			 0
+2 			 0
+3 			 0
+4 			 0
+5 			 0
+6 			 0
+7 			 0
+8 			 0
+9 			 0
+10 			 0
+11 			 0
+12 			 0
+13 			 1
+[34m
+--- Étape : Calendrier au plus tôt ---[32m
+Tâche 0 peut commencer au plus tôt à la date 0.
+Tâche 1 peut commencer au plus tôt à la date 0.
+Tâche 2 peut commencer au plus tôt à la date 0.
+Tâche 3 peut commencer au plus tôt à la date 0.
+Tâche 4 peut commencer au plus tôt à la date 0.
+Tâche 5 peut commencer au plus tôt à la date 0.
+Tâche 6 peut commencer au plus tôt à la date 0.
+Tâche 7 peut commencer au plus tôt à la date 0.
+Tâche 8 peut commencer au plus tôt à la date 0.
+Tâche 9 peut commencer au plus tôt à la date 0.
+Tâche 10 peut commencer au plus tôt à la date 0.
+Tâche 11 peut commencer au plus tôt à la date 0.
+Tâche 12 peut commencer au plus tôt à la date 0.
+Tâche 13 peut commencer au plus tôt à la date 20.
+[34m
+--- Étape : Calendrier au plus tard ---[32m
+Tâche 0 peut commencer au plus tard à la date 0.
+Tâche 1 peut commencer au plus tard à la date 10.
+Tâche 2 peut commencer au plus tard à la date 10.
+Tâche 3 peut commencer au plus tard à la date 11.
+Tâche 4 peut commencer au plus tard à la date 15.
+Tâche 5 peut commencer au plus tard à la date 16.
+Tâche 6 peut commencer au plus tard à la date 18.
+Tâche 7 peut commencer au plus tard à la date 18.
+Tâche 8 peut commencer au plus tard à la date 16.
+Tâche 9 peut commencer au plus tard à la date 12.
+Tâche 10 peut commencer au plus tard à la date 8.
+Tâche 11 peut commencer au plus tard à la date 18.
+Tâche 12 peut commencer au plus tard à la date 0.
+Tâche 13 peut commencer au plus tard à la date 20.
+[34m
+--- Étape : Calcul des marges ---[32m
+Tâche 0 a une marge de 0.
+Tâche 1 a une marge de 10.
+Tâche 2 a une marge de 10.
+Tâche 3 a une marge de 11.
+Tâche 4 a une marge de 15.
+Tâche 5 a une marge de 16.
+Tâche 6 a une marge de 18.
+Tâche 7 a une marge de 18.
+Tâche 8 a une marge de 16.
+Tâche 9 a une marge de 12.
+Tâche 10 a une marge de 8.
+Tâche 11 a une marge de 18.
+Tâche 12 a une marge de 0.
+Tâche 13 a une marge de 0.
+[34m
+--- Étape : Chemins critiques ---[32m
+La tâche 0 est critique.
+La tâche 12 est critique.
+La tâche 13 est critique.
+Chemin(s) critique(s) :
+=== RECHERCHE DE CHEMINS CRITIQUES ===
+
+--- Niveau 0 ---
+[Chemin 0] Sommet actuel : 0 | Successeurs : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+   => Extension : [0, 12]
+
+--- Niveau 1 ---
+[Chemin 1] Sommet actuel : 12 | Successeurs : [13]
+   => Extension : [0, 12, 13]
+
+--- Niveau 2 ---
+[Chemin 2] Sommet actuel : 13 | Successeurs : []
+Aucune extension possible à ce niveau. Fin de la recherche.
+
+=== Chemins complets trouvés ===
+[0]
+[0, 12]
+[0, 12, 13]
+
+=== Chemins critiques (atteignant le dernier sommet) ===
+0 => 
+12 => 
+13 => 

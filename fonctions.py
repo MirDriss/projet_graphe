@@ -366,7 +366,7 @@ def rang_sommet_matrice2(matrice):
 
         k += 1
 
-        return dico_rang
+    return dico_rang
 
 
 def ranger_ordre_graphe_sommet(graphe):
@@ -464,5 +464,54 @@ def selection_fichier():
     return fichier
 
 
-def afficher_chemin_critique():
-    pass
+def calcul_marge(matrice):
+    marge = {}
+    date_plus_tot = calculer_dates_au_plus_tot(matrice)
+    date_plus_tard = calculer_dates_au_plus_tard(matrice)
+    for tache, date in date_plus_tard.items():
+        marge[tache] = (date - date_plus_tot[tache])
+    return marge
+
+
+def chemins_critiques(matrice):
+    print("=== RECHERCHE DE CHEMINS CRITIQUES ===")
+    succ = dico_successeur(matrice)
+    marges = calcul_marge(matrice)
+
+    solutions = [[0]]
+    level = 0
+
+    # Boucle de calcul des chemins
+    while level < len(solutions):
+        new_extensions = 0
+        current_length = len(solutions)
+        print(f"\n--- Niveau {level} ---")
+        for i in range(level, current_length):
+            sommet = solutions[i][-1]
+            successeurs = succ[sommet]
+            print(f"[Chemin {i}] Sommet actuel : {sommet} | Successeurs : {successeurs}")
+            for successeur in successeurs:
+                if marges[successeur] == 0:
+                    new_extensions += 1
+                    nouvelle_solution = solutions[i] + [successeur]
+                    print(f"   => Extension : {nouvelle_solution}")
+                    solutions.append(nouvelle_solution)
+        if new_extensions == 0:
+            print("Aucune extension possible à ce niveau. Fin de la recherche.")
+            break
+        level = current_length
+
+    # Affichage de l'ensemble des chemins trouvés
+    print("\n=== Liste des chemins complets trouvés (pas encore trié) ===")
+    for sol in solutions:
+        print(sol)
+
+    # Filtrer les solutions qui atteignent le dernier sommet (on suppose ici que le dernier sommet est indiqué par le premier élément du dernier sous-tableau)
+    chemins_critiques = [sol for sol in solutions if sol[-1] == matrice[-1][0]]
+
+    print("\n=== Chemins critiques (atteignant le dernier sommet) ===")
+    for sol in chemins_critiques:
+        for i in range(len(sol)-1):
+            print(str(sol[i])+" => ", end="")
+        print(sol[len(sol)-1])
+    return chemins_critiques

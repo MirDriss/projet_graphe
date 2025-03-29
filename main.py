@@ -1,88 +1,73 @@
 from fonctions import *
 
-fichier = "graphe.txt"  # Nom du fichier à lire
+fichier = "graphe.txt"
 matrice = lire_fichier(fichier)
-ordo = afficher_matrice(matrice)
-
-print(detecter_circuit_methode_3(matrice))
-
-# matrice_valeur(matrice)
 
 
+def chemins_critiques(matrice):
+    print("=== RECHERCHE DE CHEMINS CRITIQUES ===")
+    succ = dico_successeur(matrice)
+    marges = calcul_marge(matrice)
+
+    solutions = [[0]]
+    level = 0
+
+    # Boucle de calcul des chemins
+    while level < len(solutions):
+        new_extensions = 0
+        current_length = len(solutions)
+        print(f"\n--- Niveau {level} ---")
+        for i in range(level, current_length):
+            sommet = solutions[i][-1]
+            successeurs = succ[sommet]
+            print(f"[Chemin {i}] Sommet actuel : {sommet} | Successeurs : {successeurs}")
+            for successeur in successeurs:
+                if marges[successeur] == 0:
+                    new_extensions += 1
+                    nouvelle_solution = solutions[i] + [successeur]
+                    print(f"   => Extension : {nouvelle_solution}")
+                    solutions.append(nouvelle_solution)
+        if new_extensions == 0:
+            print("Aucune extension possible à ce niveau. Fin de la recherche.")
+            break
+        level = current_length
+
+    # Affichage de l'ensemble des chemins trouvés
+    print("\n=== Chemins complets trouvés ===")
+    for sol in solutions:
+        print(sol)
+
+    # Filtrer les solutions qui atteignent le dernier sommet (on suppose ici que le dernier sommet est indiqué par le premier élément du dernier sous-tableau)
+    chemins_critiques = [sol for sol in solutions if sol[-1] == matrice[-1][0]]
+
+    print("\n=== Chemins critiques (atteignant le dernier sommet) ===")
+    for sol in chemins_critiques:
+        print(sol)
+
+    return chemins_critiques
 
 
+def chemins_critiques(matrice):
+    marge = calcul_marge(matrice)
+    successeurs = dico_successeur(matrice)
+    chemins = []
 
-"""
-run = True
+    def explorer(chemin):
+        dernier = chemin[-1]
+        if successeurs[dernier] == []:
+            chemins.append(chemin)
+            return
+        for succ in successeurs[dernier]:
+            if marge.get(succ, -1) == 0:
+                explorer(chemin + [succ])
 
-while run: # Tant que l’utilisateur décide de tester un tableau de contraintes faire
-    fichier_txt = selection_fichier() # Choisir le tableau de contraintes à traiter
-    matrice = lire_fichier(fichier_txt) # Lire le tableau de contraintes sur fichier et le stocker en mémoire
-    afficher_matrice(matrice)
-    input("Appuyer sur Entrée ...")
-    print("\n\n")
+    if marge.get(0, -1) == 0:
+        explorer([0])
 
-    affichage_graphe_ordonnancement(matrice) # Création de la matrice correspondant au graphe représentant le tableau de contraintes
-    if (is_graphe_ordonnancement(matrice)): # Vérification des propriétés nécessaires pour que ce graphe soit un graphe d’ordonnancement
-        input("Appuyer sur Entrée ...")
-        print("\n\n")
-        afficher_rang_sommets(rang_sommet_matrice(matrice)) # Calculer les rangs des sommets et les afficher
+    return chemins
 
-        # Afficher les dates au plus tôt et au plus tard
-        calculer_dates_au_plus_tot(matrice)
-        calculer_dates_au_plus_tard(matrice)
+print(chemin_critique(matrice))
 
-        # Calculer les marges et les afficher
-        # On ne l'a toujours pas fait
+#print(calcul_marge(matrice))
 
-        # Affichage des chamins critiques
-        # On ne l'a pas encore fait
-
-
-    else:
-        print("Le tableau de contraintes ne permet pas que le graphe associé soit un graphe d’ordonnancement.")
-    input("Appuyer sur Entrée ...")
-    print("\n\n")
-
-
-    print("Voulez-vous tester un nouveau tableau de contraiantes ? (y-n)") # Proposer à l’utilisateur de changer de tableau de contraintes
-    choix = input(">>> ")
-    while choix != "n" and choix != "y":
-        print("La réponse n'est pas reconnue. Voulez-vous tester un nouveau tableau de contraiantes ? (y-n)\nTapez 'y' pour oui ou 'n' pour non.")
-        choix = input(">>> ")
-    if choix == "n":
-        run = False
-"""
-
-
-
-
-
-"""
-print("Au plus tot : ")
-print(calculer_dates_au_plus_tot(matrice))
-afficher_dates_au_plus_tot(calculer_dates_au_plus_tot(matrice))
-print("Au plus tard : ")
-print(calculer_dates_au_plus_tard(matrice))
-afficher_dates_au_plus_tard(calculer_dates_au_plus_tard(matrice))
-# ranger_ordre_graphe_sommet(matrice)
-#boolean = negative_duree(matrice)
-
-#print()
-
-
-
-matrice_valeur(matrice)
-
-dico_transitif = dico_fermeture_transitive(matrice)
-
-
-print(dico_transitif)
-
-MT = matrice_transitive(matrice)
-
-afficher_matrice_transitive(matrice)
-"""
-
-
-
+#chemin_critique(matrice)
