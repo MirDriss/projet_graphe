@@ -19,7 +19,7 @@ Matrice des valeurs
 12    *     *     *     *     *     *     *     *     *     *     *     *     *   
 
 
-[34m--- Etape : VErification du graphe ---
+[34m--- Etape : Verification du graphe ---
 Le graphe ne contient aucun arc a valeur negative.
 [[1, 3], [2, 2], [3, 3, 2], [4, 5, 1], [5, 4, 4], [6, 2, 5], [7, 2, 4], [9, 5, 4], [8, 4, 5, 7], [10, 1, 3, 9], [11, 2, 6, 8]]
 etude du sommet 1

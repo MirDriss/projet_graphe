@@ -211,7 +211,7 @@ def detecter_circuit_methode_1(matrice):
     return False
 
 
-def detecter_circuit_methode_3(matrice):
+def detecter_circuit_methode_2(matrice):
 
     copy_matrice = copy.deepcopy(matrice)
 
@@ -266,42 +266,6 @@ def detecter_circuit_methode_3(matrice):
 
 
 
-def detecter_circuit_methode_2(matrice):
-    changement = True
-    copy_matrice = sorted(matrice[1:-1], key=len) # Tri pour rapidement reperer les sommets sans predecesseur
-
-
-    while changement:
-        if (len(copy_matrice) != 0):
-            ligne = copy_matrice[0]
-            print("Etude du sommet " + str(ligne[0]))
-            if (len(ligne) < 3 or ligne[2]==0):  # on verifie si le sommet n'a pas de predecesseur
-                sommet = ligne[0]  # on recupere le sommet qui est sans predecesseur
-                print("avant suppression de la ligne :", copy_matrice)
-                copy_matrice.pop(copy_matrice.index(ligne))  # on supprime la ligne ou y a le sommet en question
-                print("apres suppression de la ligne :", copy_matrice)
-                for i in range(
-                        len(copy_matrice)):  # on enleve la où le sommet apparait comme predecesseur pour les autres sommets
-                    if sommet in copy_matrice[i][2:]:
-                        print("liste des predecesseur", copy_matrice[i][2:])
-                        print("sommet a supprimer", sommet)
-                        print()
-                        copy_matrice[i].remove(sommet)
-
-            else:
-                changement = False
-        else:
-
-            changement = False
-            print(copy_matrice)
-
-    if (len(copy_matrice) == 0):
-        print("Il n'y pas de circuit")
-        return False
-
-    print("Il y un circuit")
-    return True
-
 
 def is_graphe_ordonnancement(matrice):
     if negative_duree(matrice):
@@ -309,7 +273,7 @@ def is_graphe_ordonnancement(matrice):
             "Le graphe n'est pas un graphe ordonne car il contient au moins un sommet a duree negative.\nOn ne peut pas se servir de celui-ci comme graphe d’ordonnancement.")
         return False
 
-    elif detecter_circuit_methode_3(matrice): # If True, on ne peut pas utiliser ce graphe
+    elif detecter_circuit_methode_2(matrice): # If True, on ne peut pas utiliser ce graphe
         print(
             "Le graphe n'est pas un graphe ordonne.")
         return False
@@ -345,32 +309,6 @@ def rang_sommet_matrice(matrice):
         S_suivant = []
     return dico_rang
 
-
-def rang_sommet_matrice2(matrice):
-    dico_rang = {i: -1 for i in range(len(matrice))}
-    k = 0
-    rang_restant = [ligne[0] for ligne in matrice]
-
-    for ligne in matrice:
-        if (len(ligne) == 2):
-            dico_rang[ligne[0]] = k
-            rang_restant.remove(ligne[0])
-    k += 1
-
-    while rang_restant != []:
-        nouveaux_ranges = []
-
-        for i in rang_restant:
-            if all(j not in rang_restant for j in matrice[i][2:]):
-                dico_rang[i] = k
-                nouveaux_ranges.append(i)
-
-        for i in nouveaux_ranges:
-            rang_restant.remove(i)
-
-        k += 1
-
-    return dico_rang
 
 
 def ranger_ordre_graphe_sommet(graphe):

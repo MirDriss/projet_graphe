@@ -65,9 +65,3 @@ def chemins_critiques(matrice):
         explorer([0])
 
     return chemins
-
-print(chemins_critiques(matrice))
-
-#print(calcul_marge(matrice))
-
-#chemin_critique(matrice)

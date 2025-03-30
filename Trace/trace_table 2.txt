@@ -21,7 +21,7 @@ Matrice des valeurs
 14    *     *     *     *     *     *     *     *     *     *     *     *     *     *     *   
 
 
-[34m--- Etape : VErification du graphe ---
+[34m--- Etape : Verification du graphe ---
 Le graphe ne contient aucun arc a valeur negative.
 [[1, 2], [2, 5], [3, 4, 1], [4, 1, 3], [7, 5, 6], [8, 5, 7], [9, 9, 8], [10, 2, 9], [11, 19, 6], [6, 2, 1, 2], [13, 1, 6, 11], [5, 9, 4, 6, 8], [12, 5, 7, 8, 9, 10]]
 etude du sommet 1
@@ -151,7 +151,7 @@ Tâche 1 peut commencer au plus tot a la date 0.
 Tâche 2 peut commencer au plus tot a la date 0.
 Tâche 3 peut commencer au plus tot a la date 2.
 Tâche 4 peut commencer au plus tot a la date 6.
-Tâche 5 peut commencer au plus tot a la date 7.
+Tâche 5 peut commencer au plus tot a la date 17.
 Tâche 6 peut commencer au plus tot a la date 5.
 Tâche 7 peut commencer au plus tot a la date 7.
 Tâche 8 peut commencer au plus tot a la date 12.
@@ -185,7 +185,7 @@ Tache 1 a une marge de 3.
 Tache 2 a une marge de 0.
 Tache 3 a une marge de 17.
 Tache 4 a une marge de 17.
-Tache 5 a une marge de 17.
+Tache 5 a une marge de 7.
 Tache 6 a une marge de 0.
 Tache 7 a une marge de 0.
 Tache 8 a une marge de 0.
