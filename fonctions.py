@@ -1,3 +1,4 @@
+import copy
 def lire_fichier(fichier):  # fonction pour lire le fichier txt
 
     matrice = []
@@ -211,7 +212,10 @@ def detecter_circuit_methode_1(matrice):
 
 
 def detecter_circuit_methode_3(matrice):
-    copy_matrice = sorted(matrice[1:-1], key=len)
+
+    copy_matrice = copy.deepcopy(matrice)
+
+    copy_matrice = sorted(copy_matrice[1:-1], key=len)
     continuer = True
 
     # Suppressions des sommets Omega et Alpha

@@ -66,7 +66,7 @@ def chemins_critiques(matrice):
 
     return chemins
 
-print(chemin_critique(matrice))
+print(chemins_critiques(matrice))
 
 #print(calcul_marge(matrice))
 
