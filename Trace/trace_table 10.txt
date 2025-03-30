@@ -1,108 +1,234 @@
 
 
---- Étape : Vérification du graphe ---
-Le graphe ne contient aucun arc à valeur négative.
-Étude du sommet 1
-	Sommet 1 sans prédécesseurs (ou seulement alpha)
-		Suppression de 1 comme prédécesseur du sommet 2
-		Suppression de 1 comme prédécesseur du sommet 4
-		Suppression de 1 comme prédécesseur du sommet 5
-	Sommet 1 supprimé de la matrice
+[34m--- Etape : Affichage de la matrice de valeurs ---
 
-Étude du sommet 2
-	Sommet 2 sans prédécesseurs (ou seulement alpha)
-		Suppression de 2 comme prédécesseur du sommet 3
-		Suppression de 2 comme prédécesseur du sommet 4
-		Suppression de 2 comme prédécesseur du sommet 8
-	Sommet 2 supprimé de la matrice
+Matrice des valeurs
+      0     1     2     3     4     5     6     7     8     9   
+ 0    *     0     *     *     *     *     *     *     *     *   
+ 1    *     *     2     *     2     2     *     *     *     *   
+ 2    *     *     *     3     3     *     *     *     3     *   
+ 3    *     *     *     *     *     *     *     5     *     *   
+ 4    *     *     *     *     *     6     6     *     6     *   
+ 5    *     *     *     *     *     *     2     2     *     *   
+ 6    *     *     *     *     *     *     *     *     *     1   
+ 7    *     *     *     *     *     *     *     *     6     *   
+ 8    *     *     *     *     *     *     *     *     *     1   
+ 9    *     *     *     *     *     *     *     *     *     *   
 
-Étude du sommet 3
-	Sommet 3 sans prédécesseurs (ou seulement alpha)
-		Suppression de 3 comme prédécesseur du sommet 7
-	Sommet 3 supprimé de la matrice
 
-Étude du sommet 4
-	Sommet 4 sans prédécesseurs (ou seulement alpha)
-		Suppression de 4 comme prédécesseur du sommet 5
-		Suppression de 4 comme prédécesseur du sommet 6
-		Suppression de 4 comme prédécesseur du sommet 8
-	Sommet 4 supprimé de la matrice
+[34m--- Etape : VErification du graphe ---
+Le graphe ne contient aucun arc a valeur negative.
+[[1, 2], [2, 3, 1], [3, 5, 2], [4, 6, 1, 2], [5, 2, 1, 4], [6, 1, 4, 5], [7, 6, 3, 5], [8, 1, 2, 4, 7]]
+etude du sommet 1
+	Sommet 1 sans predecesseurs (ou seulement alpha)
+		Suppression de 1 comme predecesseur du sommet 2
+		Suppression de 1 comme predecesseur du sommet 4
+		Suppression de 1 comme predecesseur du sommet 5
+	Sommet 1 supprime de la matrice
 
-Étude du sommet 5
-	Sommet 5 sans prédécesseurs (ou seulement alpha)
-		Suppression de 5 comme prédécesseur du sommet 6
-		Suppression de 5 comme prédécesseur du sommet 7
-	Sommet 5 supprimé de la matrice
+[[2, 3], [3, 5, 2], [4, 6, 2], [5, 2, 4], [6, 1, 4, 5], [7, 6, 3, 5], [8, 1, 2, 4, 7]]
+etude du sommet 2
+	Sommet 2 sans predecesseurs (ou seulement alpha)
+		Suppression de 2 comme predecesseur du sommet 3
+		Suppression de 2 comme predecesseur du sommet 4
+		Suppression de 2 comme predecesseur du sommet 8
+	Sommet 2 supprime de la matrice
 
-Étude du sommet 6
-	Sommet 6 sans prédécesseurs (ou seulement alpha)
-	Sommet 6 supprimé de la matrice
+[[3, 5], [4, 6], [5, 2, 4], [6, 1, 4, 5], [7, 6, 3, 5], [8, 1, 4, 7]]
+etude du sommet 3
+	Sommet 3 sans predecesseurs (ou seulement alpha)
+		Suppression de 3 comme predecesseur du sommet 7
+	Sommet 3 supprime de la matrice
 
-Étude du sommet 7
-	Sommet 7 sans prédécesseurs (ou seulement alpha)
-		Suppression de 7 comme prédécesseur du sommet 8
-	Sommet 7 supprimé de la matrice
+[[4, 6], [5, 2, 4], [6, 1, 4, 5], [7, 6, 5], [8, 1, 4, 7]]
+etude du sommet 4
+	Sommet 4 sans predecesseurs (ou seulement alpha)
+		Suppression de 4 comme predecesseur du sommet 5
+		Suppression de 4 comme predecesseur du sommet 6
+		Suppression de 4 comme predecesseur du sommet 8
+	Sommet 4 supprime de la matrice
 
-Étude du sommet 8
-	Sommet 8 sans prédécesseurs (ou seulement alpha)
-	Sommet 8 supprimé de la matrice
+[[5, 2], [6, 1, 5], [7, 6, 5], [8, 1, 7]]
+etude du sommet 5
+	Sommet 5 sans predecesseurs (ou seulement alpha)
+		Suppression de 5 comme predecesseur du sommet 6
+		Suppression de 5 comme predecesseur du sommet 7
+	Sommet 5 supprime de la matrice
 
-Aucun circuit détecté dans le graphe.
-Le graphe est un graphe ordonné, il peut servir de graphe d’ordonnancement.
+[[6, 1], [7, 6], [8, 1, 7]]
+etude du sommet 6
+	Sommet 6 sans predecesseurs (ou seulement alpha)
+	Sommet 6 supprime de la matrice
+
+[[7, 6], [8, 1, 7]]
+etude du sommet 7
+	Sommet 7 sans predecesseurs (ou seulement alpha)
+		Suppression de 7 comme predecesseur du sommet 8
+	Sommet 7 supprime de la matrice
+
+[[8, 1]]
+etude du sommet 8
+	Sommet 8 sans predecesseurs (ou seulement alpha)
+	Sommet 8 supprime de la matrice
+
+[]
+Aucun circuit detecte dans le graphe.
+Le graphe est un graphe ordonne, il peut servir de graphe d�ordonnancement.
 [34m
---- Étape : Calcul des rangs ---
+--- Etape : Calcul des rangs ---[32m
 Les rangs de chaque sommets sont les suivants :
 Code        Rang    
 ----------------
 0 			 0
 1 			 1
-2 			 0
-3 			 0
-4 			 0
-5 			 0
-6 			 0
-7 			 0
-8 			 0
-9 			 1
+2 			 2
+3 			 3
+4 			 3
+5 			 4
+6 			 5
+7 			 5
+8 			 6
+9 			 7
 [34m
---- Étape : Calendrier au plus tôt ---
-Tâche 0 peut commencer au plus tôt à la date 0.
-Tâche 1 peut commencer au plus tôt à la date 0.
-Tâche 2 peut commencer au plus tôt à la date 0.
-Tâche 3 peut commencer au plus tôt à la date 0.
-Tâche 4 peut commencer au plus tôt à la date 0.
-Tâche 5 peut commencer au plus tôt à la date 0.
-Tâche 6 peut commencer au plus tôt à la date 0.
-Tâche 7 peut commencer au plus tôt à la date 0.
-Tâche 8 peut commencer au plus tôt à la date 0.
-Tâche 9 peut commencer au plus tôt à la date 1.
+--- Etape : Calendrier au plus t�t ---[32m
+T�che 0 peut commencer au plus tot a la date 0.
+T�che 1 peut commencer au plus tot a la date 0.
+T�che 2 peut commencer au plus tot a la date 2.
+T�che 3 peut commencer au plus tot a la date 5.
+T�che 4 peut commencer au plus tot a la date 5.
+T�che 5 peut commencer au plus tot a la date 11.
+T�che 6 peut commencer au plus tot a la date 13.
+T�che 7 peut commencer au plus tot a la date 13.
+T�che 8 peut commencer au plus tot a la date 19.
+T�che 9 peut commencer au plus tot a la date 20.
 [34m
---- Étape : Calendrier au plus tard ---
-Tâche 0 peut commencer au plus tard à la date -5.
-Tâche 1 peut commencer au plus tard à la date -1.
-Tâche 2 peut commencer au plus tard à la date -2.
-Tâche 3 peut commencer au plus tard à la date -4.
-Tâche 4 peut commencer au plus tard à la date -5.
-Tâche 5 peut commencer au plus tard à la date -1.
-Tâche 6 peut commencer au plus tard à la date 0.
-Tâche 7 peut commencer au plus tard à la date -5.
-Tâche 8 peut commencer au plus tard à la date 0.
-Tâche 9 peut commencer au plus tard à la date 1.
+--- Etape : Calendrier au plus tard ---[32m
+T�che 0 peut commencer au plus tard a la date 0.
+T�che 1 peut commencer au plus tard a la date 0.
+T�che 2 peut commencer au plus tard a la date 2.
+T�che 3 peut commencer au plus tard a la date 8.
+T�che 4 peut commencer au plus tard a la date 5.
+T�che 5 peut commencer au plus tard a la date 11.
+T�che 6 peut commencer au plus tard a la date 19.
+T�che 7 peut commencer au plus tard a la date 13.
+T�che 8 peut commencer au plus tard a la date 19.
+T�che 9 peut commencer au plus tard a la date 20.
 [34m
---- Étape : Calcul des marges ---
-Tâche 0 a une marge de -5.
-Tâche 1 a une marge de -1.
-Tâche 2 a une marge de -2.
-Tâche 3 a une marge de -4.
-Tâche 4 a une marge de -5.
-Tâche 5 a une marge de -1.
-Tâche 6 a une marge de 0.
-Tâche 7 a une marge de -5.
-Tâche 8 a une marge de 0.
-Tâche 9 a une marge de 0.
+--- Etape : Calcul des marges ---[32m
+Tache 0 a une marge de 0.
+Tache 1 a une marge de 0.
+Tache 2 a une marge de 0.
+Tache 3 a une marge de 3.
+Tache 4 a une marge de 0.
+Tache 5 a une marge de 0.
+Tache 6 a une marge de 6.
+Tache 7 a une marge de 0.
+Tache 8 a une marge de 0.
+Tache 9 a une marge de 0.
 [34m
---- Étape : Chemins critiques ---
+--- Etape : Chemins critiques ---[32m
+La tache 0 est critique.
+La tache 1 est critique.
+La tache 2 est critique.
+La tache 4 est critique.
+La tache 5 est critique.
+La tache 7 est critique.
+La tache 8 est critique.
+La tache 9 est critique.
 Chemin(s) critique(s) :
-La tâche 6 est critique.
-La tâche 8 est critique.
-La tâche 9 est critique.
+=== RECHERCHE DE CHEMINS CRITIQUES ===
+
+--- Niveau 0 ---
+[Chemin 0] Sommet actuel : 0 | Successeurs : [1]
+   => Extension : [0, 1]
+
+--- Niveau 1 ---
+[Chemin 1] Sommet actuel : 1 | Successeurs : [2, 4, 5]
+   => Extension : [0, 1, 2]
+   => Extension : [0, 1, 4]
+   => Extension : [0, 1, 5]
+
+--- Niveau 2 ---
+[Chemin 2] Sommet actuel : 2 | Successeurs : [3, 4, 8]
+   => Extension : [0, 1, 2, 4]
+   => Extension : [0, 1, 2, 8]
+[Chemin 3] Sommet actuel : 4 | Successeurs : [5, 6, 8]
+   => Extension : [0, 1, 4, 5]
+   => Extension : [0, 1, 4, 8]
+[Chemin 4] Sommet actuel : 5 | Successeurs : [6, 7]
+   => Extension : [0, 1, 5, 7]
+
+--- Niveau 5 ---
+[Chemin 5] Sommet actuel : 4 | Successeurs : [5, 6, 8]
+   => Extension : [0, 1, 2, 4, 5]
+   => Extension : [0, 1, 2, 4, 8]
+[Chemin 6] Sommet actuel : 8 | Successeurs : [9]
+   => Extension : [0, 1, 2, 8, 9]
+[Chemin 7] Sommet actuel : 5 | Successeurs : [6, 7]
+   => Extension : [0, 1, 4, 5, 7]
+[Chemin 8] Sommet actuel : 8 | Successeurs : [9]
+   => Extension : [0, 1, 4, 8, 9]
+[Chemin 9] Sommet actuel : 7 | Successeurs : [8]
+   => Extension : [0, 1, 5, 7, 8]
+
+--- Niveau 10 ---
+[Chemin 10] Sommet actuel : 5 | Successeurs : [6, 7]
+   => Extension : [0, 1, 2, 4, 5, 7]
+[Chemin 11] Sommet actuel : 8 | Successeurs : [9]
+   => Extension : [0, 1, 2, 4, 8, 9]
+[Chemin 12] Sommet actuel : 9 | Successeurs : []
+[Chemin 13] Sommet actuel : 7 | Successeurs : [8]
+   => Extension : [0, 1, 4, 5, 7, 8]
+[Chemin 14] Sommet actuel : 9 | Successeurs : []
+[Chemin 15] Sommet actuel : 8 | Successeurs : [9]
+   => Extension : [0, 1, 5, 7, 8, 9]
+
+--- Niveau 16 ---
+[Chemin 16] Sommet actuel : 7 | Successeurs : [8]
+   => Extension : [0, 1, 2, 4, 5, 7, 8]
+[Chemin 17] Sommet actuel : 9 | Successeurs : []
+[Chemin 18] Sommet actuel : 8 | Successeurs : [9]
+   => Extension : [0, 1, 4, 5, 7, 8, 9]
+[Chemin 19] Sommet actuel : 9 | Successeurs : []
+
+--- Niveau 20 ---
+[Chemin 20] Sommet actuel : 8 | Successeurs : [9]
+   => Extension : [0, 1, 2, 4, 5, 7, 8, 9]
+[Chemin 21] Sommet actuel : 9 | Successeurs : []
+
+--- Niveau 22 ---
+[Chemin 22] Sommet actuel : 9 | Successeurs : []
+Aucune extension possible a ce niveau. Fin de la recherche.
+
+=== Liste des chemins complets trouves (pas encore trie) ===
+[0]
+[0, 1]
+[0, 1, 2]
+[0, 1, 4]
+[0, 1, 5]
+[0, 1, 2, 4]
+[0, 1, 2, 8]
+[0, 1, 4, 5]
+[0, 1, 4, 8]
+[0, 1, 5, 7]
+[0, 1, 2, 4, 5]
+[0, 1, 2, 4, 8]
+[0, 1, 2, 8, 9]
+[0, 1, 4, 5, 7]
+[0, 1, 4, 8, 9]
+[0, 1, 5, 7, 8]
+[0, 1, 2, 4, 5, 7]
+[0, 1, 2, 4, 8, 9]
+[0, 1, 4, 5, 7, 8]
+[0, 1, 5, 7, 8, 9]
+[0, 1, 2, 4, 5, 7, 8]
+[0, 1, 4, 5, 7, 8, 9]
+[0, 1, 2, 4, 5, 7, 8, 9]
+
+=== Chemins critiques (atteignant le dernier sommet) ===
+0 => 1 => 2 => 8 => 9
+0 => 1 => 4 => 8 => 9
+0 => 1 => 2 => 4 => 8 => 9
+0 => 1 => 5 => 7 => 8 => 9
+0 => 1 => 4 => 5 => 7 => 8 => 9
+0 => 1 => 2 => 4 => 5 => 7 => 8 => 9
