@@ -123,7 +123,7 @@ etude du sommet 12
 
 []
 Aucun circuit detecte dans le graphe.
-Le graphe est un graphe ordonne, il peut servir de graphe d’ordonnancement.
+Le graphe est un graphe ordonne, il peut servir de graphe dâ€™ordonnancement.
 [34m
 --- Etape : Calcul des rangs ---[32m
 Les rangs de chaque sommets sont les suivants :
@@ -145,39 +145,39 @@ Code        Rang
 13 			 4
 14 			 8
 [34m
---- Etape : Calendrier au plus tôt ---[32m
-Tâche 0 peut commencer au plus tot a la date 0.
-Tâche 1 peut commencer au plus tot a la date 0.
-Tâche 2 peut commencer au plus tot a la date 0.
-Tâche 3 peut commencer au plus tot a la date 2.
-Tâche 4 peut commencer au plus tot a la date 6.
-Tâche 5 peut commencer au plus tot a la date 17.
-Tâche 6 peut commencer au plus tot a la date 5.
-Tâche 7 peut commencer au plus tot a la date 7.
-Tâche 8 peut commencer au plus tot a la date 12.
-Tâche 9 peut commencer au plus tot a la date 17.
-Tâche 10 peut commencer au plus tot a la date 26.
-Tâche 11 peut commencer au plus tot a la date 7.
-Tâche 12 peut commencer au plus tot a la date 28.
-Tâche 13 peut commencer au plus tot a la date 26.
-Tâche 14 peut commencer au plus tot a la date 33.
+--- Etape : Calendrier au plus tÃ´t ---[32m
+TÃ¢che 0 peut commencer au plus tot a la date 0.
+TÃ¢che 1 peut commencer au plus tot a la date 0.
+TÃ¢che 2 peut commencer au plus tot a la date 0.
+TÃ¢che 3 peut commencer au plus tot a la date 2.
+TÃ¢che 4 peut commencer au plus tot a la date 6.
+TÃ¢che 5 peut commencer au plus tot a la date 17.
+TÃ¢che 6 peut commencer au plus tot a la date 5.
+TÃ¢che 7 peut commencer au plus tot a la date 7.
+TÃ¢che 8 peut commencer au plus tot a la date 12.
+TÃ¢che 9 peut commencer au plus tot a la date 17.
+TÃ¢che 10 peut commencer au plus tot a la date 26.
+TÃ¢che 11 peut commencer au plus tot a la date 7.
+TÃ¢che 12 peut commencer au plus tot a la date 28.
+TÃ¢che 13 peut commencer au plus tot a la date 26.
+TÃ¢che 14 peut commencer au plus tot a la date 33.
 [34m
 --- Etape : Calendrier au plus tard ---[32m
-Tâche 0 peut commencer au plus tard a la date 0.
-Tâche 1 peut commencer au plus tard a la date 3.
-Tâche 2 peut commencer au plus tard a la date 0.
-Tâche 3 peut commencer au plus tard a la date 19.
-Tâche 4 peut commencer au plus tard a la date 23.
-Tâche 5 peut commencer au plus tard a la date 24.
-Tâche 6 peut commencer au plus tard a la date 5.
-Tâche 7 peut commencer au plus tard a la date 7.
-Tâche 8 peut commencer au plus tard a la date 12.
-Tâche 9 peut commencer au plus tard a la date 17.
-Tâche 10 peut commencer au plus tard a la date 26.
-Tâche 11 peut commencer au plus tard a la date 13.
-Tâche 12 peut commencer au plus tard a la date 28.
-Tâche 13 peut commencer au plus tard a la date 32.
-Tâche 14 peut commencer au plus tard a la date 33.
+TÃ¢che 0 peut commencer au plus tard a la date 0.
+TÃ¢che 1 peut commencer au plus tard a la date 3.
+TÃ¢che 2 peut commencer au plus tard a la date 0.
+TÃ¢che 3 peut commencer au plus tard a la date 19.
+TÃ¢che 4 peut commencer au plus tard a la date 23.
+TÃ¢che 5 peut commencer au plus tard a la date 24.
+TÃ¢che 6 peut commencer au plus tard a la date 5.
+TÃ¢che 7 peut commencer au plus tard a la date 7.
+TÃ¢che 8 peut commencer au plus tard a la date 12.
+TÃ¢che 9 peut commencer au plus tard a la date 17.
+TÃ¢che 10 peut commencer au plus tard a la date 26.
+TÃ¢che 11 peut commencer au plus tard a la date 13.
+TÃ¢che 12 peut commencer au plus tard a la date 28.
+TÃ¢che 13 peut commencer au plus tard a la date 32.
+TÃ¢che 14 peut commencer au plus tard a la date 33.
 [34m
 --- Etape : Calcul des marges ---[32m
 Tache 0 a une marge de 0.

@@ -40,7 +40,7 @@ etude du sommet 3
 
 []
 Aucun circuit detecte dans le graphe.
-Le graphe est un graphe ordonne, il peut servir de graphe d’ordonnancement.
+Le graphe est un graphe ordonne, il peut servir de graphe dâ€™ordonnancement.
 [34m
 --- Etape : Calcul des rangs ---[32m
 Les rangs de chaque sommets sont les suivants :
@@ -53,21 +53,21 @@ Code        Rang
 4 			 2
 5 			 4
 [34m
---- Etape : Calendrier au plus tôt ---[32m
-Tâche 0 peut commencer au plus tot a la date 0.
-Tâche 1 peut commencer au plus tot a la date 0.
-Tâche 2 peut commencer au plus tot a la date 0.
-Tâche 3 peut commencer au plus tot a la date 3.
-Tâche 4 peut commencer au plus tot a la date 2.
-Tâche 5 peut commencer au plus tot a la date 7.
+--- Etape : Calendrier au plus tÃ´t ---[32m
+TÃ¢che 0 peut commencer au plus tot a la date 0.
+TÃ¢che 1 peut commencer au plus tot a la date 0.
+TÃ¢che 2 peut commencer au plus tot a la date 0.
+TÃ¢che 3 peut commencer au plus tot a la date 3.
+TÃ¢che 4 peut commencer au plus tot a la date 2.
+TÃ¢che 5 peut commencer au plus tot a la date 7.
 [34m
 --- Etape : Calendrier au plus tard ---[32m
-Tâche 0 peut commencer au plus tard a la date 0.
-Tâche 1 peut commencer au plus tard a la date 0.
-Tâche 2 peut commencer au plus tard a la date 0.
-Tâche 3 peut commencer au plus tard a la date 3.
-Tâche 4 peut commencer au plus tard a la date 2.
-Tâche 5 peut commencer au plus tard a la date 7.
+TÃ¢che 0 peut commencer au plus tard a la date 0.
+TÃ¢che 1 peut commencer au plus tard a la date 0.
+TÃ¢che 2 peut commencer au plus tard a la date 0.
+TÃ¢che 3 peut commencer au plus tard a la date 3.
+TÃ¢che 4 peut commencer au plus tard a la date 2.
+TÃ¢che 5 peut commencer au plus tard a la date 7.
 [34m
 --- Etape : Calcul des marges ---[32m
 Tache 0 a une marge de 0.
