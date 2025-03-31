@@ -167,72 +167,7 @@ La tache 5 est critique.
 La tache 8 est critique.
 La tache 9 est critique.
 La tache 11 est critique.
+
 Chemin(s) critique(s) :
-=== RECHERCHE DE CHEMINS CRITIQUES ===
-
---- Niveau 0 ---
-[Chemin 0] Sommet actuel : 0 | Successeurs : [4, 6, 7, 10]
-   => Extension : [0, 4]
-
---- Niveau 1 ---
-[Chemin 1] Sommet actuel : 4 | Successeurs : [1, 5]
-   => Extension : [0, 4, 1]
-   => Extension : [0, 4, 5]
-
---- Niveau 2 ---
-[Chemin 2] Sommet actuel : 1 | Successeurs : [9]
-   => Extension : [0, 4, 1, 9]
-[Chemin 3] Sommet actuel : 5 | Successeurs : [1, 8]
-   => Extension : [0, 4, 5, 1]
-   => Extension : [0, 4, 5, 8]
-
---- Niveau 4 ---
-[Chemin 4] Sommet actuel : 9 | Successeurs : [11]
-   => Extension : [0, 4, 1, 9, 11]
-[Chemin 5] Sommet actuel : 1 | Successeurs : [9]
-   => Extension : [0, 4, 5, 1, 9]
-[Chemin 6] Sommet actuel : 8 | Successeurs : [1, 9]
-   => Extension : [0, 4, 5, 8, 1]
-   => Extension : [0, 4, 5, 8, 9]
-
---- Niveau 7 ---
-[Chemin 7] Sommet actuel : 11 | Successeurs : []
-[Chemin 8] Sommet actuel : 9 | Successeurs : [11]
-   => Extension : [0, 4, 5, 1, 9, 11]
-[Chemin 9] Sommet actuel : 1 | Successeurs : [9]
-   => Extension : [0, 4, 5, 8, 1, 9]
-[Chemin 10] Sommet actuel : 9 | Successeurs : [11]
-   => Extension : [0, 4, 5, 8, 9, 11]
-
---- Niveau 11 ---
-[Chemin 11] Sommet actuel : 11 | Successeurs : []
-[Chemin 12] Sommet actuel : 9 | Successeurs : [11]
-   => Extension : [0, 4, 5, 8, 1, 9, 11]
-[Chemin 13] Sommet actuel : 11 | Successeurs : []
-
---- Niveau 14 ---
-[Chemin 14] Sommet actuel : 11 | Successeurs : []
-Aucune extension possible a ce niveau. Fin de la recherche.
-
-=== Liste des chemins complets trouves (pas encore trie) ===
-[0]
-[0, 4]
-[0, 4, 1]
-[0, 4, 5]
-[0, 4, 1, 9]
-[0, 4, 5, 1]
-[0, 4, 5, 8]
-[0, 4, 1, 9, 11]
-[0, 4, 5, 1, 9]
-[0, 4, 5, 8, 1]
-[0, 4, 5, 8, 9]
-[0, 4, 5, 1, 9, 11]
-[0, 4, 5, 8, 1, 9]
-[0, 4, 5, 8, 9, 11]
-[0, 4, 5, 8, 1, 9, 11]
-
-=== Chemins critiques (atteignant le dernier sommet) ===
-0 => 4 => 1 => 9 => 11
-0 => 4 => 5 => 1 => 9 => 11
-0 => 4 => 5 => 8 => 9 => 11
 0 => 4 => 5 => 8 => 1 => 9 => 11
+[34m

@@ -39,7 +39,7 @@ etude du sommet 2
 
 []
 Aucun circuit detecte dans le graphe.
-Le graphe est un graphe ordonne, il peut servir de graphe dâ€™ordonnancement.
+Le graphe est un graphe ordonne, il peut servir de graphe d’ordonnancement.
 [34m
 --- Etape : Calcul des rangs ---[32m
 Les rangs de chaque sommets sont les suivants :
@@ -52,21 +52,21 @@ Code        Rang
 4 			 2
 5 			 3
 [34m
---- Etape : Calendrier au plus tÃ´t ---[32m
-TÃ¢che 0 peut commencer au plus tot a la date 0.
-TÃ¢che 1 peut commencer au plus tot a la date 0.
-TÃ¢che 2 peut commencer au plus tot a la date 9.
-TÃ¢che 3 peut commencer au plus tot a la date 0.
-TÃ¢che 4 peut commencer au plus tot a la date 4.
-TÃ¢che 5 peut commencer au plus tot a la date 11.
+--- Etape : Calendrier au plus tôt ---[32m
+Tâche 0 peut commencer au plus tot a la date 0.
+Tâche 1 peut commencer au plus tot a la date 0.
+Tâche 2 peut commencer au plus tot a la date 9.
+Tâche 3 peut commencer au plus tot a la date 0.
+Tâche 4 peut commencer au plus tot a la date 4.
+Tâche 5 peut commencer au plus tot a la date 11.
 [34m
 --- Etape : Calendrier au plus tard ---[32m
-TÃ¢che 0 peut commencer au plus tard a la date 0.
-TÃ¢che 1 peut commencer au plus tard a la date 0.
-TÃ¢che 2 peut commencer au plus tard a la date 9.
-TÃ¢che 3 peut commencer au plus tard a la date 0.
-TÃ¢che 4 peut commencer au plus tard a la date 4.
-TÃ¢che 5 peut commencer au plus tard a la date 11.
+Tâche 0 peut commencer au plus tard a la date 0.
+Tâche 1 peut commencer au plus tard a la date 0.
+Tâche 2 peut commencer au plus tard a la date 9.
+Tâche 3 peut commencer au plus tard a la date 0.
+Tâche 4 peut commencer au plus tard a la date 4.
+Tâche 5 peut commencer au plus tard a la date 11.
 [34m
 --- Etape : Calcul des marges ---[32m
 Tache 0 a une marge de 0.
@@ -83,49 +83,8 @@ La tache 2 est critique.
 La tache 3 est critique.
 La tache 4 est critique.
 La tache 5 est critique.
+
 Chemin(s) critique(s) :
-=== RECHERCHE DE CHEMINS CRITIQUES ===
-{0: 0, 1: 0, 2: 9, 3: 0, 4: 4, 5: 11}
-{0: 0, 1: 0, 2: 9, 3: 0, 4: 4, 5: 11}
-
---- Niveau 0 ---
-[Chemin 0] Sommet actuel : 0 | Successeurs : [1, 3]
-   => Extension : [0, 1]
-   => Extension : [0, 3]
-
---- Niveau 1 ---
-[Chemin 1] Sommet actuel : 1 | Successeurs : [2]
-   => Extension : [0, 1, 2]
-[Chemin 2] Sommet actuel : 3 | Successeurs : [2, 4]
-   => Extension : [0, 3, 2]
-   => Extension : [0, 3, 4]
-
---- Niveau 3 ---
-[Chemin 3] Sommet actuel : 2 | Successeurs : [5]
-   => Extension : [0, 1, 2, 5]
-[Chemin 4] Sommet actuel : 2 | Successeurs : [5]
-   => Extension : [0, 3, 2, 5]
-[Chemin 5] Sommet actuel : 4 | Successeurs : [5]
-   => Extension : [0, 3, 4, 5]
-
---- Niveau 6 ---
-[Chemin 6] Sommet actuel : 5 | Successeurs : []
-[Chemin 7] Sommet actuel : 5 | Successeurs : []
-[Chemin 8] Sommet actuel : 5 | Successeurs : []
-Aucune extension possible a ce niveau. Fin de la recherche.
-
-=== Liste des chemins complets trouves (pas encore trie) ===
-[0]
-[0, 1]
-[0, 3]
-[0, 1, 2]
-[0, 3, 2]
-[0, 3, 4]
-[0, 1, 2, 5]
-[0, 3, 2, 5]
-[0, 3, 4, 5]
-
-=== Chemins critiques (atteignant le dernier sommet) ===
 0 => 1 => 2 => 5
-0 => 3 => 2 => 5
 0 => 3 => 4 => 5
+[34m

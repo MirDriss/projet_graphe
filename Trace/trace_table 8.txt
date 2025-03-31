@@ -163,35 +163,7 @@ La tache 7 est critique.
 La tache 8 est critique.
 La tache 9 est critique.
 La tache 11 est critique.
+
 Chemin(s) critique(s) :
-=== RECHERCHE DE CHEMINS CRITIQUES ===
-
---- Niveau 0 ---
-[Chemin 0] Sommet actuel : 0 | Successeurs : [4, 5, 6, 7, 10]
-   => Extension : [0, 7]
-
---- Niveau 1 ---
-[Chemin 1] Sommet actuel : 7 | Successeurs : [2, 8]
-   => Extension : [0, 7, 8]
-
---- Niveau 2 ---
-[Chemin 2] Sommet actuel : 8 | Successeurs : [9]
-   => Extension : [0, 7, 8, 9]
-
---- Niveau 3 ---
-[Chemin 3] Sommet actuel : 9 | Successeurs : [11]
-   => Extension : [0, 7, 8, 9, 11]
-
---- Niveau 4 ---
-[Chemin 4] Sommet actuel : 11 | Successeurs : []
-Aucune extension possible a ce niveau. Fin de la recherche.
-
-=== Liste des chemins complets trouves (pas encore trie) ===
-[0]
-[0, 7]
-[0, 7, 8]
-[0, 7, 8, 9]
-[0, 7, 8, 9, 11]
-
-=== Chemins critiques (atteignant le dernier sommet) ===
 0 => 7 => 8 => 9 => 11
+[34m
