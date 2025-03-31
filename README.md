@@ -15,7 +15,7 @@ Ce projet de Théorie des Graphes permet de gérer des opérations sur des graph
 
 ## Structure Projet
 
--  `main.py`: Fichier contenant le menu et les appels des fonctions
+-  `menu.py`: Fichier contenant le menu et les appels des fonctions
 -  `fonction.py`: Fichier qui gère les opérations sur le graphe
 
 ## Membres du Groupe

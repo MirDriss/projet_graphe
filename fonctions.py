@@ -34,12 +34,12 @@ def lire_fichier(fichier):  # fonction pour lire le fichier txt
     return matrice
 
 
-def nbr_arc(graphe):
-    nbr = -1
+def nbr_arc(graphe): # Calcule du nombre d'arc dans un graphe
+    nbr = -1 # Enlever alpha
     for i in range(len(graphe)):
-        nbr += len(graphe[i]) - 2
+        nbr += len(graphe[i]) - 2 # Nombre d'élément sur la ligne en enlevant le sommet + la durée
         if (len(graphe[i]) == 2):
-            nbr += 1
+            nbr += 1 # Si c'est un sommet source
     return nbr
 
 
@@ -289,25 +289,25 @@ def rang_sommet_matrice(matrice):
     """
     dico_rang = {}
     dico_succ = dico_successeur(matrice)
-    S_actuel = []
+    S_actuel = [] # Stocke les sommets de rangs n
     for i in range(len(matrice)):  # detection des Sommets de rangs 0 (Ceux qui n'ont pas de predecesseurs)
         dico_rang[i] = -1
-        if (len(matrice[i]) == 2):
+        if (len(matrice[i]) == 2): # S'il y a seulement 2 éléments sur la ligne (nom de la tâche + durée)
             dico_rang[i] = 0
             S_actuel.append(i)
-    S_suivant = []
-    k = 1
-    while S_actuel != []:
+    S_suivant = [] # Stockera les sommets de rangs n + 1
+    k = 1 # Rang
+    while S_actuel != []: # Tant qu'il n'y a plus de sommet de rangs n + 1 (plus de successeur à nos sommets de rangs n
         for i in range(len(matrice)):
             for j in range(2, len(matrice[i])):
-                if (matrice[i][j]) in S_actuel:
-                    S_suivant.append(i)
+                if (matrice[i][j]) in S_actuel: # Si le sommet est un successeur de d'un des sommets de rang n
+                    S_suivant.append(i) # le mettre dans le tableau des rangs n + 1
         for i in S_suivant:
             dico_rang[i] = k
-        k += 1
+        k += 1 # Augmente le rang
         S_actuel = S_suivant
         S_suivant = []
-    return dico_rang
+    return dico_rang # Renvoie le dico
 
 
 
@@ -332,7 +332,7 @@ def predecesseur(matrice, indice):
     return pred
 
 
-def graphe_vers_dico(graphe):
+def graphe_vers_dico(graphe): # donne la matrice sous la forme d'un dico avec {Nom : {durée : X, predecesseur : [S1,S2]}}
     tache = {}
     for i in range(len(graphe)):
         tache[i] = {'duree': graphe[i][1], 'predecesseurs': predecesseur(graphe, i)}
@@ -346,9 +346,9 @@ def calculer_dates_au_plus_tot(graphe):
     # Initialisation des dates au plus tot
     dates_au_plus_tot = {tache: 0 for tache in taches}  # On commence toutes les dates a 0
 
-    # Parcours des tâches dans l'ordre topologique
+    # Parcours des tâches dans l'ordre croisant des rangs
     for tache in ordre:
-        # Pour chaque predecesseur, on calcule la date de fin et on met a jour la date de debut
+        # Pour chaque predecesseur, on calcule la date de fin et on met à jour la date de debut
         for pred in taches[tache]['predecesseurs']:
             # La tâche peut commencer une fois que toutes ses predecesseurs sont terminees
             dates_au_plus_tot[tache] = max(dates_au_plus_tot[tache], dates_au_plus_tot[pred] + taches[pred]['duree'])
@@ -358,30 +358,36 @@ def calculer_dates_au_plus_tot(graphe):
 
 def calculer_dates_au_plus_tard(matrice):
     ordre = ranger_ordre_graphe_sommet(matrice)
+
+    # Recuperer le graphe sous forme de dictionnaire
     tasks = graphe_vers_dico(matrice)
     dates_au_plus_tot = calculer_dates_au_plus_tot(matrice)
     successeurs = dico_successeur(matrice)
 
     duree_projet = max(dates_au_plus_tot.values())
 
+    #initialisation de date au plus tard à l'aide de la date au projet. Permet à omega d'avoir la date de fin
     dates_au_plus_tard = {task: duree_projet for task in tasks}
 
+    #on parcourt dans le sens décroissant des rangs
     for task in reversed(ordre):
+        # on verifie si on est sur omega
         if not successeurs[task]:
             dates_au_plus_tard[task] = duree_projet
+        # il faut respecter la contrainte de temps la plus importante. Soit la plus petite valeur.
         else:
             date_min = min(dates_au_plus_tard[succ] for succ in successeurs[task])
             dates_au_plus_tard[task] = date_min - tasks[task]['duree']
     return dates_au_plus_tard
 
 
-def afficher_dates_au_plus_tot(dates_au_plus_tot):
+def afficher_dates_au_plus_tot(dates_au_plus_tot): # Afficher les dates au plus tôt de chaque sommet
     for tache, date in dates_au_plus_tot.items():
         print(f"Tâche {tache} peut commencer au plus tot a la date {date}.")
     return
 
 
-def afficher_dates_au_plus_tard(dates_au_plus_tot):
+def afficher_dates_au_plus_tard(dates_au_plus_tot): # Afficher les dates au plus tard de chaque sommet
     for tache, date in dates_au_plus_tot.items():
         print(f"Tâche {tache} peut commencer au plus tard a la date {date}.")
     return
@@ -396,66 +402,78 @@ def afficher_rang_sommets(dico):
     return
 
 
-def selection_fichier():
-    fichier = "Graphe/"
+def selection_fichier(): # Sélection d'un fichier
+    fichier = "Graphe/" # Ouvre le dossier contenant les graphes
     print("Veuillez choisir la table que vous souhaitez (1-14) ?")
-    choix = int(input(">>> "))
-    while (int(choix) < 1 or int(choix) > 14):
+    choix = int(input(">>> ")) # Selection d'un fichier entre 1 et 14
+    while (int(choix) < 1 or int(choix) > 14): # Le choix de l'utilisateur est-il compris entre 1 et 14
         print(
             "La valeur que vous avez choisi '" + str(choix) + "' n'est pas acceptable. \nVeuillez choisir une nouvelle valeur ?")
         choix = input(">>> ")
-    fichier += "table " + str(choix) + ".txt"
+    fichier += "table " + str(choix) + ".txt" # le chemin de notre fichier
     return fichier
 
 
-def calcul_marge(matrice):
-    marge = {}
-    date_plus_tot = calculer_dates_au_plus_tot(matrice)
-    date_plus_tard = calculer_dates_au_plus_tard(matrice)
-    for tache, date in date_plus_tard.items():
-        marge[tache] = (date - date_plus_tot[tache])
-    return marge
+def calculer_marges_arcs(matrice):
+    """
+    Calcule la marge pour chaque arc (i -> j) de la matrice.
+    Pour un arc allant du prédécesseur i vers le sommet j,
+    la marge est définie par :
+
+        marge = dates_tard[j] - (dates_tot[i] + durée(i))
+
+    où durée(i) est la durée associée au sommet i.
+    """
+
+    dates_tot = calculer_dates_au_plus_tot(matrice)
+    dates_tard = calculer_dates_au_plus_tard(matrice)
+    # Création d'un dictionnaire pour accéder rapidement à la durée de chaque sommet
+    duree = {tache[0]: tache[1] for tache in matrice}
+
+    marges = []
+    for tache in matrice:
+        sommet = tache[0]  # sommet d'arrivée
+        predecesseurs = tache[2:]  # liste des prédécesseurs de j
+        for pred in predecesseurs:
+            marge = dates_tard[sommet] - (dates_tot[pred] + duree[pred])
+            marges.append(((pred, sommet), marge))
+    return marges
 
 
 def chemins_critiques(matrice):
-    print("=== RECHERCHE DE CHEMINS CRITIQUES ===")
-    succ = dico_successeur(matrice)
-    marges = calcul_marge(matrice)
+    """
+    Calcule les chemins critiques à partir de la matrice.
 
-    solutions = [[0]]
-    level = 0
+    On part du nœud 0 et on recherche tous les chemins menant
+    au nœud final (matrice[-1][0]) en ne suivant que les arcs dont la marge est 0.
 
-    # Boucle de calcul des chemins
-    while level < len(solutions):
-        new_extensions = 0
-        current_length = len(solutions)
-        print(f"\n--- Niveau {level} ---")
-        for i in range(level, current_length):
-            sommet = solutions[i][-1]
-            successeurs = succ[sommet]
-            print(f"[Chemin {i}] Sommet actuel : {sommet} | Successeurs : {successeurs}")
-            for successeur in successeurs:
-                if marges[successeur] == 0:
-                    new_extensions += 1
-                    nouvelle_solution = solutions[i] + [successeur]
-                    print(f"   => Extension : {nouvelle_solution}")
-                    solutions.append(nouvelle_solution)
-        if new_extensions == 0:
-            print("Aucune extension possible a ce niveau. Fin de la recherche.")
-            break
-        level = current_length
+    La fonction calculer_marges_arcs(matrice) est utilisée pour obtenir les marges.
+    """
+    # Calcul des marges sur chaque arc
+    marges = calculer_marges_arcs(matrice)
 
-    # Affichage de l'ensemble des chemins trouves
-    print("\n=== Liste des chemins complets trouves (pas encore trie) ===")
-    for sol in solutions:
-        print(sol)
+    # Construction d'un dictionnaire de successeurs critiques :
+    # Pour chaque arc (i -> j) avec marge == 0, on ajoute j comme successeur de i.
+    successeurs_critique = {}
+    for (i, j), marge in marges:
+        if marge == 0:
+            successeurs_critique.setdefault(i, []).append(j)
 
-    # Filtrer les solutions qui atteignent le dernier sommet (on suppose ici que le dernier sommet est indique par le premier element du dernier sous-tableau)
-    chemins_critiques = [sol for sol in solutions if sol[-1] == matrice[-1][0]]
+    # On considère que le nœud final est le premier élément de la dernière tâche de la matrice
+    final_node = matrice[-1][0]
+    chemins = []
 
-    print("\n=== Chemins critiques (atteignant le dernier sommet) ===")
-    for sol in chemins_critiques:
-        for i in range(len(sol)-1):
-            print(str(sol[i])+" => ", end="")
-        print(sol[len(sol)-1])
-    return chemins_critiques
+    # Fonction récursive pour explorer le graphe des arcs critiques
+    def explorer(chemin):
+        courant = chemin[-1]
+        # Si on a atteint le noeuud final, on ajoute le chemin trouvé
+        if courant == final_node:
+            chemins.append(chemin)
+            return
+        # Sinon on parcourt tous les successeurs critiques du noeud courant
+        for succ in successeurs_critique.get(courant, []):
+            explorer(chemin + [succ])
+
+    # Démarrage de l'exploration depuis le noeud 0
+    explorer([0])
+    return chemins

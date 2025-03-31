@@ -107,7 +107,7 @@ etude du sommet 9
 
 []
 Aucun circuit detecte dans le graphe.
-Le graphe est un graphe ordonne, il peut servir de graphe d’ordonnancement.
+Le graphe est un graphe ordonne, il peut servir de graphe dâ€™ordonnancement.
 [34m
 --- Etape : Calcul des rangs ---[32m
 Les rangs de chaque sommets sont les suivants :
@@ -126,33 +126,33 @@ Code        Rang
 10 			 2
 11 			 5
 [34m
---- Etape : Calendrier au plus tôt ---[32m
-Tâche 0 peut commencer au plus tot a la date 0.
-Tâche 1 peut commencer au plus tot a la date 16.
-Tâche 2 peut commencer au plus tot a la date 7.
-Tâche 3 peut commencer au plus tot a la date 6.
-Tâche 4 peut commencer au plus tot a la date 0.
-Tâche 5 peut commencer au plus tot a la date 4.
-Tâche 6 peut commencer au plus tot a la date 0.
-Tâche 7 peut commencer au plus tot a la date 0.
-Tâche 8 peut commencer au plus tot a la date 9.
-Tâche 9 peut commencer au plus tot a la date 17.
-Tâche 10 peut commencer au plus tot a la date 6.
-Tâche 11 peut commencer au plus tot a la date 26.
+--- Etape : Calendrier au plus tÃ´t ---[32m
+TÃ¢che 0 peut commencer au plus tot a la date 0.
+TÃ¢che 1 peut commencer au plus tot a la date 16.
+TÃ¢che 2 peut commencer au plus tot a la date 7.
+TÃ¢che 3 peut commencer au plus tot a la date 6.
+TÃ¢che 4 peut commencer au plus tot a la date 0.
+TÃ¢che 5 peut commencer au plus tot a la date 4.
+TÃ¢che 6 peut commencer au plus tot a la date 0.
+TÃ¢che 7 peut commencer au plus tot a la date 0.
+TÃ¢che 8 peut commencer au plus tot a la date 9.
+TÃ¢che 9 peut commencer au plus tot a la date 17.
+TÃ¢che 10 peut commencer au plus tot a la date 6.
+TÃ¢che 11 peut commencer au plus tot a la date 26.
 [34m
 --- Etape : Calendrier au plus tard ---[32m
-Tâche 0 peut commencer au plus tard a la date 0.
-Tâche 1 peut commencer au plus tard a la date 16.
-Tâche 2 peut commencer au plus tard a la date 24.
-Tâche 3 peut commencer au plus tard a la date 14.
-Tâche 4 peut commencer au plus tard a la date 0.
-Tâche 5 peut commencer au plus tard a la date 4.
-Tâche 6 peut commencer au plus tard a la date 0.
-Tâche 7 peut commencer au plus tard a la date 2.
-Tâche 8 peut commencer au plus tard a la date 9.
-Tâche 9 peut commencer au plus tard a la date 17.
-Tâche 10 peut commencer au plus tard a la date 6.
-Tâche 11 peut commencer au plus tard a la date 26.
+TÃ¢che 0 peut commencer au plus tard a la date 0.
+TÃ¢che 1 peut commencer au plus tard a la date 16.
+TÃ¢che 2 peut commencer au plus tard a la date 24.
+TÃ¢che 3 peut commencer au plus tard a la date 14.
+TÃ¢che 4 peut commencer au plus tard a la date 0.
+TÃ¢che 5 peut commencer au plus tard a la date 4.
+TÃ¢che 6 peut commencer au plus tard a la date 0.
+TÃ¢che 7 peut commencer au plus tard a la date 2.
+TÃ¢che 8 peut commencer au plus tard a la date 9.
+TÃ¢che 9 peut commencer au plus tard a la date 17.
+TÃ¢che 10 peut commencer au plus tard a la date 6.
+TÃ¢che 11 peut commencer au plus tard a la date 26.
 [34m
 --- Etape : Calcul des marges ---[32m
 Tache 0 a une marge de 0.
@@ -178,66 +178,9 @@ La tache 8 est critique.
 La tache 9 est critique.
 La tache 10 est critique.
 La tache 11 est critique.
+
 Chemin(s) critique(s) :
-=== RECHERCHE DE CHEMINS CRITIQUES ===
-
---- Niveau 0 ---
-[Chemin 0] Sommet actuel : 0 | Successeurs : [4, 6, 7]
-   => Extension : [0, 4]
-   => Extension : [0, 6]
-
---- Niveau 1 ---
-[Chemin 1] Sommet actuel : 4 | Successeurs : [1, 5]
-   => Extension : [0, 4, 1]
-   => Extension : [0, 4, 5]
-[Chemin 2] Sommet actuel : 6 | Successeurs : [3, 10]
-   => Extension : [0, 6, 10]
-
---- Niveau 3 ---
-[Chemin 3] Sommet actuel : 1 | Successeurs : [9]
-   => Extension : [0, 4, 1, 9]
-[Chemin 4] Sommet actuel : 5 | Successeurs : [8]
-   => Extension : [0, 4, 5, 8]
-[Chemin 5] Sommet actuel : 10 | Successeurs : [1]
-   => Extension : [0, 6, 10, 1]
-
---- Niveau 6 ---
-[Chemin 6] Sommet actuel : 9 | Successeurs : [11]
-   => Extension : [0, 4, 1, 9, 11]
-[Chemin 7] Sommet actuel : 8 | Successeurs : [9]
-   => Extension : [0, 4, 5, 8, 9]
-[Chemin 8] Sommet actuel : 1 | Successeurs : [9]
-   => Extension : [0, 6, 10, 1, 9]
-
---- Niveau 9 ---
-[Chemin 9] Sommet actuel : 11 | Successeurs : []
-[Chemin 10] Sommet actuel : 9 | Successeurs : [11]
-   => Extension : [0, 4, 5, 8, 9, 11]
-[Chemin 11] Sommet actuel : 9 | Successeurs : [11]
-   => Extension : [0, 6, 10, 1, 9, 11]
-
---- Niveau 12 ---
-[Chemin 12] Sommet actuel : 11 | Successeurs : []
-[Chemin 13] Sommet actuel : 11 | Successeurs : []
-Aucune extension possible a ce niveau. Fin de la recherche.
-
-=== Liste des chemins complets trouves (pas encore trie) ===
-[0]
-[0, 4]
-[0, 6]
-[0, 4, 1]
-[0, 4, 5]
-[0, 6, 10]
-[0, 4, 1, 9]
-[0, 4, 5, 8]
-[0, 6, 10, 1]
-[0, 4, 1, 9, 11]
-[0, 4, 5, 8, 9]
-[0, 6, 10, 1, 9]
-[0, 4, 5, 8, 9, 11]
-[0, 6, 10, 1, 9, 11]
-
-=== Chemins critiques (atteignant le dernier sommet) ===
-0 => 4 => 1 => 9 => 11
+{0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 0}
 0 => 4 => 5 => 8 => 9 => 11
 0 => 6 => 10 => 1 => 9 => 11
+[34m

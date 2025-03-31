@@ -100,4 +100,4 @@ etude du sommet 4
 Circuit detecte dans le graphe !
 Sommets restants impliques dans un circuit : [5, 6, 7, 8, 9, 10, 11, 13, 4]
 Le graphe n'est pas un graphe ordonne.
-[34mCe graphe ne peut pas être utilise pour l'ordonnancement.
+[34mCe graphe ne peut pas Ãªtre utilise pour l'ordonnancement.

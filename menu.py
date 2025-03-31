@@ -23,10 +23,14 @@ class Tee:
 init(autoreset=True)
 
 def menu():
+    """
+    Cette fonction execute le menu et une boucle infini qui sert à tester autant de circuit qu'on veut.
+    :return:
+    """
     header = f"""{Fore.BLUE}
     ╔═╗ ╦═╗ ╔═╗ ╔═╗ ╦ ╦ ╔═╗ ╔═╗
     ║ ╦ ╠╦╝ ╠═╣ ╠═╝ ╠═╣ ║╣  ╚═╗
-    ╚═╝ ╩╚═ ╩ ╩ ╩   ╩ ╩ ╚═╝ ╚═╝  by Bracquemart, Dos Santos, H'lali, Mir, Vazquez
+    ╚═╝ ╩╚═ ╩ ╩ ╩   ╩ ╩ ╚═╝ ╚═╝  by Bracquemart, Dos Santos, H'lali, Mir, Vazquez {Fore.RESET}
     """
 
     continuer = True
@@ -44,24 +48,24 @@ def menu():
 
         if step == "selected":
             if display == "matrice":
-                print(f"""{Fore.BLUE}Graph {fichier.split("/")[-1]} selectionne :{Fore.WHITE}""")
+                print(f"""{Fore.BLUE}Graph {fichier.split("/")[-1]} selectionne :{Fore.RESET}""")
                 afficher_matrice(matrice)
                 matrice_valeur(matrice)
             elif display == "is_graphe_ordonnancement":
-                print(f"""{Fore.BLUE}Verification si le graph {fichier.split("/")[-1]} est il ordonnancable :{Fore.WHITE}""")
+                print(f"""{Fore.BLUE}Verification si le graph {fichier.split("/")[-1]} est il ordonnancable :{Fore.RESET}""")
                 is_graphe_ordonnancement(matrice)
             elif display == "afficher_rang_sommets":
-                print(f"""{Fore.BLUE}Graph {fichier.split("/")[-1]} selectionne:{Fore.WHITE}""")
+                print(f"""{Fore.BLUE}Graph {fichier.split("/")[-1]} selectionne:{Fore.RESET}""")
                 afficher_rang_sommets(rang_sommet_matrice(matrice))
 
 
             print(f"""{Fore.BLUE}\n\t MENU""")
             print("1 - Sauvegardez le graphe")
             print("2 - Choisir un autre graphe")
-            print("3 - Affihcer la matrice correspondante au graphe")
+            print("3 - Afficher la matrice correspondante au graphe")
             print("4 - Verfier si le graphe peut être ordonnance ")
             print("5 - Afficher les rangs des sommets ")
-            print("6 - Executer le programme en entier avec les traces d'executions")
+            print("6 - Executer le programme en entier avec les traces d'executions (EXECUTER CETTE COMMANDE DANS LE CADRE DU PROJET) ")
             choix = input(f"""{Fore.BLUE}>>> """)
             if (choix == "1"):
                 print(f"""{Fore.RED}Ca marche pas encore dEsolE""")
@@ -105,15 +109,20 @@ def menu():
                         for tache in dates_tot:
                             if dates_tot[tache] == dates_tard[tache]:
                                 print(f"La tache {tache} est critique.")
-                        print("Chemin(s) critique(s) :")
-                        chem_crit = chemins_critiques(matrice)
+                        print("\nChemin(s) critique(s) :")
+                        chemins = chemins_critiques(matrice)
+                        for chemin in chemins:
+                            for i in range(0, len(chemin) - 1):
+                                print(str(chemin[i]) + " => ", end="")
+                            print(chemin[len(chemin)-1])
+                        print(f"""{Fore.BLUE}""")
                     else:
                         print(f"""{Fore.BLUE}Ce graphe ne peut pas être utilise pour l'ordonnancement.""")
                     sys.stdout = sys.__stdout__
 
                 choix = "0"
                 while choix not in ["non", "oui"]:
-                    choix = input(f"""\nVoulez-vous tester un autre tableau de contraintes (oui/non) ? {Fore.GREEN}""")
+                    choix = input(f"""\nVoulez-vous tester un autre tableau de contraintes (oui/non) ? {Fore.RESET}""")
                     choix = choix.lower()
                     continuer = choix
                 if continuer == "oui":
